@@ -60,14 +60,14 @@ tab-bar tab-bar-item marker-top:selected {
   background-color: #1596f7;
 }
 
-tab-bar-item#settings {
+tab-bar-item#form-party {
   background-image: url(icons/cog.svg);
 }
 
-tab-bar-item#index {
+tab-bar-item#home {
   background-image: url(icons/home.svg);
 }
 
-tab-bar-item#internet {
+tab-bar-item#my-taxi {
   background-image: url(icons/search.svg);
 }
