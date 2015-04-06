@@ -17,7 +17,7 @@ module.exports =
     {
       title: "My Taxi"
       id: "my-taxi"
-      location: "example#taxi-details" # URLs are supported!
+      location: "example#full-details" # URLs are supported!
     }
   ]
   rootView:
