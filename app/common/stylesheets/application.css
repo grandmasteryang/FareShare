@@ -4,3 +4,13 @@
   font-weight: 600;
 }
 
+div.taxiRow{
+border-bottom:solid;
+border-width:3px;
+border-bottom-color:#00B5FF;
+font-size: 15px;
+}
+
+div.main{
+border-collapse: collapse;
+}
