@@ -1,5 +1,40 @@
-<div>
-<h1>Form Party</h1>
+<div class="container-fluid">
 <a href="getting-started.html"><button type="button" class="btn btn-primary">getting-started</button></a>
 <a href="taxi-details.html"><button type="button" class="btn btn-primary">taxi-details</button></a>
+<h1>Form New Party</h1>
+
+<form>
+  <div class="form-group">
+    <label for="departureLocation">Departure Location</label>
+    <input class="form-control" id="departureLocation" placeholder="Enter Departure Location">
+  </div>
+  <div class="form-group">
+    <label for="destination">Destination</label>
+    <input class="form-control" id="destination" placeholder="Enter Destination">
+  </div>
+
+  <div class="form-group">
+  	<label for="departureDate">Departure Date and Time</label>
+  </div>
+
+
+  <div class="form-group">
+      <label for="maxPassengers">Max Number of Passengers (Including Yourself!)</label>
+      <select class="form-control" id="maxPassengers">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+  </div>
+
+  <div class="form-group">
+    <label for="notes">Additional Notes</label>
+    <textarea class="form-control" rows="3" id="notes">Women only party? Minimum waiting time for late arrivers? Write it here!</textarea>
+  </div>
+ 
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
 </div>
