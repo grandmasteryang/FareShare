@@ -9,8 +9,9 @@ navigation-bar {
 }
 
 navigation-bar title {
+  text-align: left;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -34,14 +35,14 @@ tab-bar tab-bar-item:selected {
   color: #1596f7;
 }
 
-tab-bar-item#settings {
+tab-bar-item#form-party {
   background-image: url(icons/cog.svg);
 }
 
-tab-bar-item#index {
+tab-bar-item#home {
   background-image: url(icons/home.svg);
 }
 
-tab-bar-item#internet {
+tab-bar-item#my-taxi {
   background-image: url(icons/search.svg);
 }
