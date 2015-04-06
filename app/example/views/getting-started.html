@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
-<div class="main">
+<div>
     <super-navbar>
         <super-navbar-title>
         FareShare
         </super-navbar-title> 
     </super-navbar>
     <div class="taxiRow">
-  		<div class="row">
-  			<div class="col-xs-7">
-    			<p>From: O'Hare</p>
-    		</div>
-    		<div class="col-xs-5">
-    			<p>Apr 13, 12:00pm</p>
-    		</div>
-  		</div>
-  		<div class="row">
-  			<div class="col-xs-7">
-    			<p>To: Northwestern</p>
-    		</div>
-    		<div class="col-xs-5">
-    			<p>Seats: 3</p>
-    		</div>
-  		</div>
+        <super-navigate view-id="full-details"> 
+            <div class="row">
+                <div class="col-xs-7">
+                    <p>From: Northwestern</p>
+                </div>
+                <div class="col-xs-5">
+                    <p>Apr 13, 12:00pm</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-7">
+                    <p>To: O'Hare</p>
+                </div>
+                <div class="col-xs-5">
+                    <p>Seats: 3</p>
+                </div>
+            </div>
+        </super-navigate>
   	</div>
     <div class="taxiRow">
   		<div class="row">
@@ -42,7 +44,6 @@
     		</div>
   		</div>
   	</div>
-<!--    <div class="taxiRow" style="font-size: 15px; border-bottom: solid;"> -->
     <div class="taxiRow">
         <div class="row">
   			<div class="col-xs-7">

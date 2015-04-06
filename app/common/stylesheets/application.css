@@ -11,6 +11,9 @@ border-bottom-color:#00B5FF;
 font-size: 15px;
 }
 
-div.main{
-border-collapse: collapse;
+a.button-color:link{
+    color: black
 }
+a.button-color:visited {color:black;} /* visited link */
+a.button-color:hover {color:black;}   /* mouse over link */
+a.button-color:active {color:black;}  /* selected link */
