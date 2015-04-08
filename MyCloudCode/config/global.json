@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.0"
+  },
+  "applications": {
+    "Fareshare": {
+      "applicationId": "WFsSSvySr1S355oaYLShMo4V9UWthJBi6LVYYTNZ",
+      "masterKey": "dBXbPMu5tZTrRTDEwH5hTYF5z2UTyNxKxHQYNzn5"
+    },
+    "_default": {
+      "link": "Fareshare"
+    }
+  }
+}
