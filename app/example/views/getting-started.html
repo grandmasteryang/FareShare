@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html>
-<div>
+<div ng-controller="GettingStartedController">
     <super-navbar>
         <super-navbar-title>
         FareShare
         </super-navbar-title> 
     </super-navbar>
- 
     <div class="taxiRow">
         <super-navigate view-id="full-details"> 
             <div class="row">
                 <div class="col-xs-7">
-                    <p>From: Northwestern</p>
+                    <p>From: {{cow}}</p>
                 </div>
                 <div class="col-xs-5">
                     <p>Apr 13, 12:00pm</p>
@@ -82,4 +79,3 @@
   		</div>
   	</div>
 </div>
-</html>
