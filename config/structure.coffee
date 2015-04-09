@@ -17,7 +17,7 @@ module.exports =
     {
       title: "My Taxi"
       id: "my-taxi"
-      location: "http://maps.google.com" # URLs are supported!
+      location: "taxidata#index" # URLs are supported!
     }
   ]
   rootView:
