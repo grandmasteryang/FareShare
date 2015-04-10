@@ -6,6 +6,8 @@ angular
     $scope.submitForm = function () {
       $scope.showSpinner = true;
       newtaxidata = new Taxidata($scope.taxidata);
+
+      
       newtaxidata.save().then( function () {
   			
   			alert("Form Submitted! New Taxi Created.");
