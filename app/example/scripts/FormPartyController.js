@@ -26,6 +26,8 @@ angular
       alert($scope.departureInput);
       $scope.showSpinner = true;
       newtaxidata = new Taxidata($scope.taxidata);
+
+      
       newtaxidata.save().then( function () {
         supersonic.ui.tabs.select(0);
       });
