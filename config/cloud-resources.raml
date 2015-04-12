@@ -16,8 +16,8 @@ traits:
           default: 55376
 
 schemas:
-  - taxiData_collection: '{"$schema":"http://json-schema.org/schema","title":"taxiData collection","type":"object","properties":{"results":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxiData representation","properties":{"createdAt":{"type":"string"},"departAddress":{"type":"string"},"departTime":{"type":"object"},"destAddress":{"type":"string"},"objectId":{"type":"string"},"updatedAt":{"type":"string"}},"required":[]}}}}'
-  - taxiData_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxiData representation","properties":{"createdAt":{"type":"string"},"departAddress":{"type":"string"},"departTime":{"type":"object"},"destAddress":{"type":"string"},"objectId":{"type":"string"},"updatedAt":{"type":"string"}},"required":[]}'
+  - taxidata_collection: '{"$schema":"http://json-schema.org/schema","title":"taxidata collection","type":"object","properties":{"results":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxidata representation","properties":{"createdAt":{"type":"string"},"departAddress":{"type":"string"},"departTime":{"type":"object"},"destAddress":{"type":"string"},"objectId":{"type":"string"},"updatedAt":{"type":"string"}},"required":[]}}}}'
+  - taxidata_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxidata representation","properties":{"createdAt":{"type":"string"},"departAddress":{"type":"string"},"departTime":{"type":"object"},"destAddress":{"type":"string"},"objectId":{"type":"string"},"updatedAt":{"type":"string"}},"required":[]}'
 
 resourceTypes:
   - dolan_db_collection:
@@ -165,10 +165,10 @@ resourceTypes:
           200:
 
 
-/taxiData:
+/taxidata:
   description: |
     {
-      "resourceName": "taxiData",
+      "resourceName": "taxidata",
       "identifierKey": "objectId"
     }
   type: parse_collection

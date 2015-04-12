@@ -10,7 +10,7 @@
             <super-navigate view-id="full-details"> 
                 <div class="row">
                     <div class="col-xs-7">
-                        <p><span ng-bind="taxidata['departAddress']"></span></p>
+                        <p><span>From: </span><span ng-bind="taxidata['departAddress']"></span></p>
                     </div>
                     <div class="col-xs-5">
                         <p><span ng-bind="taxidata['departTime']['iso']"></span></p>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-7">
-                        <p><span ng-bind="taxidata['destAddress']"></span></p>
+                        <p><span>To: </span><span ng-bind="taxidata['destAddress']"></span></p>
                     </div>
                     <div class="col-xs-5">
                         <p></p>

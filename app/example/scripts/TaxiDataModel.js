@@ -1,3 +1,3 @@
 angular
   .module('example')
-  .constant('Taxidata', supersonic.data.model('taxiData'));
+  .constant('Taxidata', supersonic.data.model('taxidata'));
