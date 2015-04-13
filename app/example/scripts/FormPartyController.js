@@ -28,8 +28,9 @@ angular
       $scope.taxidata['remainingSeats'] = $scope.taxidata['maxPassengers'] - 1;
 
 
-      if (!$scope.taxidata['departDate'] || !$scope.taxidata['departTime']){
-        alert("Please fill in the date and time.")
+      if (!$scope.taxidata['departDate'] || !$scope.taxidata['departTime'] 
+          || !$scope.taxidata['departureLocation'] || !$scope.taxidata['destination']){
+        alert("Please fill in all fields.")
       } else
       {
          $scope.taxidata['departDate'] = String($scope.taxidata['departDate'].getMonth() + 1) + "/"

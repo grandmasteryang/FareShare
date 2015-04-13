@@ -16,7 +16,6 @@ angular
 
     $scope.joinButton = "Join Taxi";
     $scope.clickJoin = function(taxidata) {
-      //$scope.joinButton = "Leave Taxi";  
       if (taxidata['remainingSeats'] == 0 && $scope.joinButton == "Join Taxi"){
         alert("No available seats!");
       }    
@@ -24,13 +23,14 @@ angular
         $scope.joinButton = "Leave Taxi";
           taxidata['remainingSeats']--;
           taxidata.save();
+          alert("Joined!")
       }
       else if ($scope.joinButton == "Leave Taxi") {
         $scope.joinButton = "Join Taxi";
           taxidata['remainingSeats']++;
           taxidata.save();
+          alert("You left the Taxi.");
       }
-      //$location.path("getting-started");
     };
   
 
