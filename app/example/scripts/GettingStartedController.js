@@ -11,7 +11,10 @@ angular
     });
 
     $scope.updateSeats = function(taxidata) {
-    	if (taxidata['remainingSeats'] > 0) {
+      if (taxidata['remainingSeats'] == 0) {
+        alert("No available seats!")
+      }
+    	else {
     		taxidata['remainingSeats']--;
     		taxidata.save();
     	}
