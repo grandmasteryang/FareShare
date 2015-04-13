@@ -17,7 +17,7 @@ angular
     $scope.joinButton = "Join Taxi";
     $scope.clickJoin = function(taxidata) {
       //$scope.joinButton = "Leave Taxi";  
-      if (taxidata['remainingSeats'] == 0){
+      if (taxidata['remainingSeats'] == 0 && $scope.joinButton == "Join Taxi"){
         alert("No available seats!");
       }    
       else if ($scope.joinButton == "Join Taxi") {
