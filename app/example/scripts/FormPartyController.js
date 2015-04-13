@@ -23,7 +23,7 @@ angular
 
     $scope.submitForm = function () {
       //store info in parse
-      alert($scope.departureInput);
+      alert(document.getElementById("myTime").value);
       $scope.showSpinner = true;
       newtaxidata = new Taxidata($scope.taxidata);
 

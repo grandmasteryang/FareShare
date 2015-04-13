@@ -1,0 +1,50 @@
+<div ng-controller="ShowController">
+  <super-navbar>
+    <super-navbar-title>
+      Show
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+      <h2 ng-bind="taxidatatwo['createdAt']"></h2>
+      
+      
+      
+       <p>departDate: <span ng-bind="taxidatatwo['departDate']"></span></p> 
+      
+       <p>departTime: <span ng-bind="taxidatatwo['departTime']"></span></p> 
+      
+       <p>deptAddr: <span ng-bind="taxidatatwo['deptAddr']"></span></p> 
+      
+       <p>destAddr: <span ng-bind="taxidatatwo['destAddr']"></span></p> 
+      
+       <p>maxPassengers: <span ng-bind="taxidatatwo['maxPassengers']"></span></p> 
+      
+       <p>notes: <span ng-bind="taxidatatwo['notes']"></span></p> 
+      
+       <p>objectId: <span ng-bind="taxidatatwo['objectId']"></span></p> 
+      
+       <p>partyLeader: <span ng-bind="taxidatatwo['partyLeader']"></span></p> 
+      
+       <p>passengerList: <span ng-bind="taxidatatwo['passengerList']"></span></p> 
+      
+       <p>remainingSeats: <span ng-bind="taxidatatwo['remainingSeats']"></span></p> 
+      
+       <p>updatedAt: <span ng-bind="taxidatatwo['updatedAt']"></span></p> 
+      
+
+
+      <super-modal-show location="taxidatatwo#edit?id={{ taxidatatwo.id }}">
+        <button class="button button-block button-positive">
+          Edit
+        </button>
+      </super-modal-show>
+
+      <button ng-click="remove(taxidatatwo.id)" class="button button-block button-negative">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

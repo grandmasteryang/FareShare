@@ -1,0 +1,31 @@
+<div ng-controller="IndexController">
+  <super-navbar>
+    <super-navbar-title>
+      Taxidatatwo Index
+    </super-navbar-title>
+  </super-navbar>
+
+  <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+  <div ng-hide="showSpinner">
+    <ul class="list" ng-hide="taxidatatwos.length == 0">
+
+      <super-navigate location="taxidatatwo#show" data-params-id="{{ taxidatatwo.id }}" ng-repeat="taxidatatwo in taxidatatwos">
+        <li class="item item-icon-right">
+          <span ng-bind="taxidatatwo['createdAt']"></span>
+          <i class="icon super-ios7-arrow-right"></i>
+        </li>
+      </super-navigate>
+
+    </ul>
+
+    <h4 ng-show="taxidatatwos.length == 0" class="assertive padding">
+      No taxidatatwos found. Create one?
+    </h4>
+
+    <super-modal-show location="taxidatatwo#new">
+      <button class="button button-full button-positive">
+        Create a new taxidatatwo
+      </button>
+    </super-modal-show>
+  </div>
+</div>

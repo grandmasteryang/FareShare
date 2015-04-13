@@ -16,8 +16,10 @@ traits:
           default: 55376
 
 schemas:
-  - taxidata_collection: '{"$schema":"http://json-schema.org/schema","title":"taxidata collection","type":"object","properties":{"results":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxidata representation","properties":{"createdAt":{"type":"string"},"departAddress":{"type":"string"},"departTime":{"type":"object"},"destAddress":{"type":"string"},"objectId":{"type":"string"},"updatedAt":{"type":"string"}},"required":[]}}}}'
-  - taxidata_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxidata representation","properties":{"createdAt":{"type":"string"},"departAddress":{"type":"string"},"departTime":{"type":"object"},"destAddress":{"type":"string"},"objectId":{"type":"string"},"updatedAt":{"type":"string"}},"required":[]}'
+  - taxidata_collection: '{"$schema":"http://json-schema.org/schema","title":"taxidata collection","type":"object","properties":{"results":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxidata representation","properties":{"createdAt":{"type":"string"},"departAddress":{"type":"string"},"objectId":{"type":"string"},"remainingSeats":{"type":"integer"},"updatedAt":{"type":"string"}},"required":[]}}}}'
+  - taxidata_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxidata representation","properties":{"createdAt":{"type":"string"},"departAddress":{"type":"string"},"objectId":{"type":"string"},"remainingSeats":{"type":"integer"},"updatedAt":{"type":"string"}},"required":[]}'
+  - taxidatatwo_collection: '{"$schema":"http://json-schema.org/schema","title":"taxidatatwo collection","type":"object","properties":{"results":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxidatatwo representation","properties":{"createdAt":{"type":"string"},"departDate":{"type":"string"},"departTime":{"type":"string"},"deptAddr":{"type":"string"},"destAddr":{"type":"string"},"maxPassengers":{"type":"integer"},"notes":{"type":"string"},"objectId":{"type":"string"},"partyLeader":{"type":"string"},"passengerList":{"type":"array"},"remainingSeats":{"type":"integer"},"updatedAt":{"type":"string"}},"required":[]}}}}'
+  - taxidatatwo_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical taxidatatwo representation","properties":{"createdAt":{"type":"string"},"departDate":{"type":"string"},"departTime":{"type":"string"},"deptAddr":{"type":"string"},"destAddr":{"type":"string"},"maxPassengers":{"type":"integer"},"notes":{"type":"string"},"objectId":{"type":"string"},"partyLeader":{"type":"string"},"passengerList":{"type":"array"},"remainingSeats":{"type":"integer"},"updatedAt":{"type":"string"}},"required":[]}'
 
 resourceTypes:
   - dolan_db_collection:
@@ -169,6 +171,16 @@ resourceTypes:
   description: |
     {
       "resourceName": "taxidata",
+      "identifierKey": "objectId"
+    }
+  type: parse_collection
+  /{id}:
+    type: parse_member
+
+/taxidatatwo:
+  description: |
+    {
+      "resourceName": "taxidatatwo",
       "identifierKey": "objectId"
     }
   type: parse_collection
