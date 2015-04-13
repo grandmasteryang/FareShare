@@ -29,7 +29,7 @@ angular
 
 
       if (!$scope.taxidata['departDate'] || !$scope.taxidata['departTime'] 
-          || !$scope.taxidata['departureLocation'] || !$scope.taxidata['destination']){
+          || !$scope.taxidata['deptAddr'] || !$scope.taxidata['destAddr']){
         alert("Please fill in all fields.")
       } else
       {
