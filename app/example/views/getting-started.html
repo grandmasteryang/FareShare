@@ -18,12 +18,13 @@
                         <p><span ng-bind="taxidata['departDate']"></span></p>
                         <p><span ng-bind="taxidata['departTime']"></span></p>
                     </div>
-                    <div class="col-xs-2">
-                        <button class="btn btn-default">Join</button>
-                     </div>
                 </div>
             </super-navigate>
-                
+                <div class="row">
+                    <div class="col-xs-2">
+                        <button class="btn btn-default" ng-click="updateSeats(taxidata)">Join</button>
+                     </div>
+                </div>        
       	</div>
     </div>
 </div>

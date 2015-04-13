@@ -6,8 +6,15 @@ angular
 
     Taxidata.all().whenChanged( function (taxidatas) {
         $scope.$apply( function () {
-          $scope.taxidatas = taxidatas;
-        
-        });
+          $scope.taxidatas = taxidatas;  
+    	});	
     });
+
+    $scope.updateSeats = function(taxidata) {
+    	if (taxidata['remainingSeats'] > 0) {
+    		taxidata['remainingSeats']--;
+    		taxidata.save();
+    	}
+    };
+
   });
