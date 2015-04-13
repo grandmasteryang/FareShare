@@ -7,7 +7,7 @@ angular
     Taxidata.all().whenChanged( function (taxidatas) {
         $scope.$apply( function () {
           $scope.taxidatas = taxidatas;
-        	alert((taxidatas[0])['remainingSeats']);
+        
         });
     });
   });
