@@ -28,27 +28,34 @@ angular
       $scope.taxidata['remainingSeats'] = $scope.taxidata['maxPassengers'] - 1;
 
 
-      $scope.taxidata['departDate'] = String($scope.taxidata['departDate'].getMonth() + 1) + "/"
+      if (!$scope.taxidata['departDate'] || !$scope.taxidata['departTime']){
+        alert("Please fill in the date and time.")
+      } else
+      {
+         $scope.taxidata['departDate'] = String($scope.taxidata['departDate'].getMonth() + 1) + "/"
        + String($scope.taxidata['departDate'].getDate()) + "/" 
        + String($scope.taxidata['departDate'].getFullYear());
 
-      $scope.taxidata['departTime'] = String($scope.taxidata['departTime'].getHours()) + ":"
-        + String($scope.taxidata['departTime'].getMinutes());
+        $scope.taxidata['departTime'] = String($scope.taxidata['departTime'].getHours()) + ":"
+          + String($scope.taxidata['departTime'].getMinutes());
 
-      $scope.taxidata['notes'] = document.getElementById("notes").value;  
+        $scope.taxidata['notes'] = document.getElementById("notes").value;  
 
-       
- 
+         
+   
 
-      $scope.showSpinner = true;
-      newtaxidata = new Taxidata($scope.taxidata);
+        $scope.showSpinner = true;
+        newtaxidata = new Taxidata($scope.taxidata);
 
-      
-      newtaxidata.save().then( function () {
-        supersonic.ui.tabs.select(0);
-      });
+        
+        newtaxidata.save().then( function () {
+          supersonic.ui.tabs.select(0);
+        });
 
-      $scope.showSpinner = false;
+        $scope.showSpinner = false;
+      }
+
+     
     };
 
     $scope.cancel = function () {
