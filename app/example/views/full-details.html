@@ -6,17 +6,17 @@
     </super-navbar>
 
   <div class="form-group">
-    <p><b>{{myCow}}</b></p>
-    <p>Northwestern University</p>
+    <p><b>Departure Location</b></p>
+    <p><span ng-bind="taxidata['deptAddr']"></span></p>
   </div>
   <div class="form-group">
     <p><b>Destination</b></p>
-    <p>O'Hare Airport</p>
+    <p><span ng-bind="taxidata['destAddr']"></p>
   </div>
 
   <div class="form-group">
   	<p><b>Departure Date and Time</b></p>
-    <p>6/5/2015 10:00 AM<p>
+    <p><span ng-bind="taxidata['departDate']"></span> <span ng-bind="taxidata['departTime']"></span><p>
 
   </div>
 
@@ -24,19 +24,18 @@
   <div class="form-group" id="mail">
     <p><b>Passengers</b></p>
       
-      <p>johncarter@mail.com</p>
-      <p>peterparker@mail.com</p>
-      <p>johnrambo@mail.com</p>
-      
+      <div ng-hide="taxidata['passengerList'].length == 0" ng-repeat="passenger in taxidata['passengerList']"> 
+        <span>{{ passenger }}</span>
+      </div>
   </div>
 
   <div class="form-group">
     <p><b>Additional Notes</b></p>
-    <p>Women only party. Maximum of 5 minutes late.</p>
+    <p><span ng-bind="taxidata['notes']"></span></p>
   </div>
 
  
-  <button class="btn btn-default" ng-click="clickJoin()">{{joinButton}}</button>
+  <button class="btn btn-default" ng-click="clickJoin()">Join Taxi</button>
 
 
 </div>
