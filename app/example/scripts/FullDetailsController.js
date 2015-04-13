@@ -14,6 +14,13 @@ angular
       });
     }
 
+    $scope.joinButton = "Join Taxi";
+    $scope.clickJoin = function() {
+      $scope.joinButton = "Leave Taxi";
+      //$location.path("getting-started");
+    };
+  
+
     supersonic.ui.views.current.whenVisible( function () {
       if ( $scope.dataId ) {
         _refreshViewData();
@@ -25,3 +32,4 @@ angular
       _refreshViewData();
     });
   });
+
