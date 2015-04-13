@@ -23,6 +23,23 @@ angular
 
     $scope.submitForm = function () {
       //store info in parse
+
+      $scope.taxidata['maxPassengers'] = document.getElementById("maxPassengers").selectedIndex + 2;
+      $scope.taxidata['remainingSeats'] = $scope.taxidata['maxPassengers'] - 1;
+
+
+      $scope.taxidata['departDate'] = String($scope.taxidata['departDate'].getMonth() + 1) + "/"
+       + String($scope.taxidata['departDate'].getDate()) + "/" 
+       + String($scope.taxidata['departDate'].getFullYear());
+
+      $scope.taxidata['departTime'] = String($scope.taxidata['departTime'].getHours()) + ":"
+        + String($scope.taxidata['departTime'].getMinutes());
+
+      $scope.taxidata['notes'] = document.getElementById("notes").value;  
+
+       
+ 
+
       $scope.showSpinner = true;
       newtaxidata = new Taxidata($scope.taxidata);
 
@@ -30,6 +47,8 @@ angular
       newtaxidata.save().then( function () {
         supersonic.ui.tabs.select(0);
       });
+
+      $scope.showSpinner = false;
     };
 
     $scope.cancel = function () {
