@@ -12,6 +12,7 @@
       <super-navigate location="taxidata#show" data-params-id="{{ taxidata.id }}" ng-repeat="taxidata in taxidatas">
         <li class="item item-icon-right">
           <span ng-bind="taxidata['departAddress']"></span>
+          <span ng-bind="taxidata['departTime']"></span>
           <i class="icon super-ios7-arrow-right"></i>
         </li>
       </super-navigate>

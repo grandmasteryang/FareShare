@@ -13,7 +13,7 @@
                         <p><span>From: </span><span ng-bind="taxidata['departAddress']"></span></p>
                     </div>
                     <div class="col-xs-5">
-                        <p><span ng-bind="taxidata['departTime']['iso']"></span></p>
+                        <p><span ng-bind="taxidata['departTime'].match(regexPattern)[0]"></span></p>
                     </div>
                 </div>
             </super-navigate>

@@ -5,7 +5,7 @@ module.exports =
   # See styling options for tabs and other native components in app/common/native-styles/ios.css or app/common/native-styles/android.css
   tabs: [
     {
-      title: "Home"
+      title: "Taxis"
       id: "home"
       location: "example#getting-started" # Supersonic module#view type navigation
     }
@@ -14,11 +14,11 @@ module.exports =
       id: "form-party"
       location: "example#form-party"
     }
-    {
-      title: "My Taxi"
-      id: "my-taxi"
-      location: "taxidata#index" # URLs are supported!
-    }
+    #{
+    #  title: "My Taxi"
+    #  id: "my-taxi"
+    #  location: "taxidata#index" # URLs are supported!
+    #}
   ]
   rootView:
       location: "example#getting-started"
