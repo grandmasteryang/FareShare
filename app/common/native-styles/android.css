@@ -62,11 +62,11 @@ tab-bar tab-bar-item marker-top:selected {
 }
 
 tab-bar-item#form-party {
-  background-image: url(icons/cog.svg);
+  background-image: url(icons/addpeople.svg);
 }
 
 tab-bar-item#home {
-  background-image: url(icons/home.svg);
+  background-image: url(icons/taxi.svg);
 }
 
 tab-bar-item#my-taxi {
