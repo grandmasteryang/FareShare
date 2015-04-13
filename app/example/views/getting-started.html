@@ -7,24 +7,28 @@
 
     <div id="Taxi-row-container">
         <div class="taxiRow" ng-repeat="taxidata in taxidatas">
-            <super-navigate location="example#full-details" data-params-id="{{ taxidata.id }}"> 
-                <div class="row">
-                    <div class="col-xs-7">
-                        <p><span>From: </span><span ng-bind="taxidata['deptAddr']"></span></p>
-                        <p><span>To: </span><span ng-bind="taxidata['destAddr']"></span></p>
-                        <p><span>Remaining Seats: </span><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span></p>
-                    </div>
-                    <div class="col-xs-5">
-                        <p><span ng-bind="taxidata['departDate']"></span></p>
-                        <p><span ng-bind="taxidata['departTime']"></span></p>
-                    </div>
+            <div class="row">
+                <div class="col-xs-7">
+                    <p><span>From: </span><span ng-bind="taxidata['deptAddr']"></span></p>
+                    <p><span>To: </span><span ng-bind="taxidata['destAddr']"></span></p>
                 </div>
-            </super-navigate>
-                <div class="row">
-                    <div class="col-xs-2">
-                        <button class="btn btn-default" ng-click="updateSeats(taxidata)">Join</button>
-                     </div>
-                </div>        
+                <div class="col-xs-4">
+                    <p><span ng-bind="taxidata['departDate']"></span></p>
+                    <p><span ng-bind="taxidata['departTime']"></span></p>
+                </div>
+                <super-navigate location="example#full-details" data-params-id="{{ taxidata.id }}"> 
+                <div class="col-xs-1">
+                    <button class="btn btn-default" ng-click="updateSeats(taxidata)" style="margin-top: 25px">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </div>
+                </super-navigate> 
+            </div>
+            <div class="row">
+                <div class='col-xs-12'>
+                    <p><span>Remaining Seats: </span><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span></p>
+                </div>
+            </div>
       	</div>
     </div>
 </div>
