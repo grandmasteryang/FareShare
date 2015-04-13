@@ -10,28 +10,20 @@
             <super-navigate view-id="full-details"> 
                 <div class="row">
                     <div class="col-xs-7">
-                        <p><span>From: </span><span ng-bind="taxidata['departAddress']"></span></p>
+                        <p><span>From: </span><span ng-bind="taxidata['deptAddr']"></span></p>
+                        <p><span>To: </span><span ng-bind="taxidata['destAddr']"></span></p>
+                        <p><span>Remaining Seats: </span><span ng-bind="taxidata['remainingSeats']"></span></p>
                     </div>
                     <div class="col-xs-5">
-                        <p><span ng-bind="taxidata['departTime'].match(regexPattern)[0]"></span></p>
+                        <p><span ng-bind="taxidata['departDate']"></span></p>
+                        <p><span ng-bind="taxidata['departTime']"></span></p>
                     </div>
+                    <div class="col-xs-2">
+                        <button class="btn btn-default">Join</button>
+                     </div>
                 </div>
             </super-navigate>
-                <div class="row">
-                  <div class="col-xs-10">
-                  </div>
-                  <div class="col-xs-2">
-                    <button class="btn btn-default">Join</button>
-                  </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-7">
-                        <p><span>To: </span><span ng-bind="taxidata['destAddress']"></span></p>
-                    </div>
-                    <div class="col-xs-5">
-                        <p></p>
-                    </div>
-                </div>
+                
       	</div>
     </div>
 </div>
