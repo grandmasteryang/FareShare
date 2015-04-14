@@ -26,6 +26,8 @@ angular
 
       $scope.taxidata['maxPassengers'] = document.getElementById("maxPassengers").selectedIndex + 2;
       $scope.taxidata['remainingSeats'] = $scope.taxidata['maxPassengers'] - 1;
+      $scope.taxidata['deptAddr'] = document.getElementById('departureLocation').value;
+      $scope.taxidata['destAddr'] = document.getElementById('destination').value;
 
 
       if (!$scope.taxidata['departDate'] || !$scope.taxidata['departTime'] 

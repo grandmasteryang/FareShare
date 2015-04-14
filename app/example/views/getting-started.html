@@ -9,8 +9,8 @@
         <div class="taxiRow" ng-repeat="taxidata in taxidatas">
             <div class="row">
                 <div class="col-xs-7">
-                    <p><span>From: </span><span ng-bind="taxidata['deptAddr']"></span></p>
-                    <p><span>To: </span><span ng-bind="taxidata['destAddr']"></span></p>
+                    <p><b><span>From: </b></span><span ng-bind="taxidata['deptAddr']"></span></p>
+                    <p><b><span>To: </b></span><span ng-bind="taxidata['destAddr']"></span></p>
                 </div>
                 <div class="col-xs-4">
                     <p><span ng-bind="taxidata['departDate']"></span></p>
@@ -26,7 +26,7 @@
             </div>
             <div class="row">
                 <div class='col-xs-12'>
-                    <p><span>Remaining Seats: </span><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span></p>
+                    <p><b><span>Remaining Seats: </b></span><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span></p>
                 </div>
             </div>
       	</div>
