@@ -14,7 +14,9 @@ angular
       });
     }
 
+   
     $scope.joinButton = "Join Taxi";
+
     $scope.clickJoin = function(taxidata) {
       if (taxidata['remainingSeats'] == 0 && $scope.joinButton == "Join Taxi"){
         alert("No available seats!");
@@ -22,8 +24,10 @@ angular
       else if ($scope.joinButton == "Join Taxi") {
         $scope.joinButton = "Leave Taxi";
           taxidata['remainingSeats']--;
+          
+          taxidata['passengerList']=prompt("Please enter your name");
           taxidata.save();
-          alert("Joined!")
+          //alert("disp_prompt()")
       }
       else if ($scope.joinButton == "Leave Taxi") {
         $scope.joinButton = "Join Taxi";
