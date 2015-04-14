@@ -53,6 +53,7 @@ angular
         
         newtaxidata.save().then( function () {
           supersonic.ui.tabs.select(0);
+          document.getElementById("newTaxiForm").reset();
         });
 
         $scope.showSpinner = false;
