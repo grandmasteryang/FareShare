@@ -2,13 +2,11 @@
 
     <super-navbar>
         <super-navbar-title>
-        FareShare
-
-            <button class="btn btn-default" ng-click="updateSeats(taxidata)" style="margin-top: 25px">
-            <span class="glyphicon glyphicon-plus"></span>
-            </button>
-                
+        FareShare                
         </super-navbar-title> 
+        <super-navbar-button side="right" ng-click="refreshTaxis()">
+            refresh
+        </super-navbar-button>
     </super-navbar>
 
     <div id="Taxi-row-container">

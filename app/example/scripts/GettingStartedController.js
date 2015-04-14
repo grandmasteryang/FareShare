@@ -10,6 +10,10 @@ angular
     	});	
     });
 
+    $scope.refreshTaxis = function() {
+      location.reload();
+    };
+
     // $scope.updateSeats = function(taxidata) {
     //   if (taxidata['remainingSeats'] == 0) {
     //     alert("No available seats!")
