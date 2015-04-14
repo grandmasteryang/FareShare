@@ -24,8 +24,8 @@ angular
       else if ($scope.joinButton == "Join Taxi") {
         $scope.joinButton = "Leave Taxi";
           taxidata['remainingSeats']--;
-          taxidata.save();
-          taxidata['passengerList']=prompt("Please enter your name");
+          //taxidata.save();
+          taxidata['passengerList']= Array(prompt("Please enter an alias")).concat(taxidata['passengerList']);
           taxidata.save();
           //alert("disp_prompt()")
       }
