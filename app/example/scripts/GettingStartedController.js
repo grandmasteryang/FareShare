@@ -14,12 +14,12 @@ angular
       location.reload();
     };
     $scope.myfilter = function(element){
+      var newString = String($scope.query.departDate.getMonth() + 1) + "/"
+          + String($scope.query.departDate.getDate()) + "/" 
+          + String($scope.query.departDate.getFullYear());
       return(
         ((element['deptAddr'].indexOf($scope.query.deptAddr))>=0)&&(element['destAddr'].indexOf($scope.query.destAddr)>=0)&&(
-          $element['departDate'] = String($scope.query.departDate.getMonth() + 1) + "/"
-          + String($scope.query.departDate.getDate()) + "/" 
-          + String($scope.query.departDate.getFullYear())
-)
+          element['departDate'] == newString)
         );
     }
     //$scope.query = function(){
