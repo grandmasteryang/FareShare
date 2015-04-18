@@ -13,7 +13,11 @@ angular
     $scope.refreshTaxis = function() {
       location.reload();
     };
-
+    
+//    $scope.queryDate={};
+//    $scope.filterByDate = function(taxidata){
+//        return $scope.queryDate[taxidata.departDate];
+//    }
     // $scope.updateSeats = function(taxidata) {
     //   if (taxidata['remainingSeats'] == 0) {
     //     alert("No available seats!")

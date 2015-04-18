@@ -8,9 +8,17 @@
             refresh
         </super-navbar-button>
     </super-navbar>
-
+    <lable>
+        <input ng-model="query.deptAddr" type="text" placeholder="Departure Address">
+    </lable>
+    <lable>
+        <input ng-model="query.destAddr" type="text" placeholder="Destination Address">
+    </lable>
+<!--    <lable>
+        <input ng-model="query.departDate" type="date">
+    </lable>   -->
     <div id="Taxi-row-container">
-        <div class="taxiRow" ng-repeat="taxidata in taxidatas">
+        <div class="taxiRow" ng-repeat="taxidata in taxidatas|filter:query">
             <div class="row">
                 <div class="col-xs-7">
                     <p><b><span>From: </b></span><span ng-bind="taxidata['deptAddr']"></span></p>
