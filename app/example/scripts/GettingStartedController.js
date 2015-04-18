@@ -13,7 +13,18 @@ angular
     $scope.refreshTaxis = function() {
       location.reload();
     };
+    $scope.myfilter = function(element){
+      return(
+        ((element['deptAddr'].indexOf($scope.query.deptAddr))>=0)&&(element['destAddr'].indexOf($scope.query.destAddr)>=0)
+        );
+    }
+    //$scope.query = function(){
     
+    //$scope.query.date=String($scope.query.date.getMonth() + 1) + "/"
+    //   + String($scope.query.date.getDate()) + "/" 
+    //   + String($scope.query.date.getFullYear());
+    
+    // } 
 //    $scope.queryDate={};
 //    $scope.filterByDate = function(taxidata){
 //        return $scope.queryDate[taxidata.departDate];
