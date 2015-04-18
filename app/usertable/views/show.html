@@ -1,0 +1,42 @@
+<div ng-controller="ShowController">
+  <super-navbar>
+    <super-navbar-title>
+      Show
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+      <h2 ng-bind="usertable['createdAt']"></h2>
+      
+      
+      
+       <p>firstName: <span ng-bind="usertable['firstName']"></span></p> 
+      
+       <p>lastName: <span ng-bind="usertable['lastName']"></span></p> 
+      
+       <p>objectId: <span ng-bind="usertable['objectId']"></span></p> 
+      
+       <p>phoneNumber: <span ng-bind="usertable['phoneNumber']"></span></p> 
+      
+       <p>updatedAt: <span ng-bind="usertable['updatedAt']"></span></p> 
+      
+       <p>userName: <span ng-bind="usertable['userName']"></span></p> 
+      
+       <p>userPassword: <span ng-bind="usertable['userPassword']"></span></p> 
+      
+
+
+      <super-modal-show location="usertable#edit?id={{ usertable.id }}">
+        <button class="button button-block button-positive">
+          Edit
+        </button>
+      </super-modal-show>
+
+      <button ng-click="remove(usertable.id)" class="button button-block button-negative">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

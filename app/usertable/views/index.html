@@ -1,0 +1,31 @@
+<div ng-controller="IndexController">
+  <super-navbar>
+    <super-navbar-title>
+      Usertable Index
+    </super-navbar-title>
+  </super-navbar>
+
+  <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+  <div ng-hide="showSpinner">
+    <ul class="list" ng-hide="usertables.length == 0">
+
+      <super-navigate location="usertable#show" data-params-id="{{ usertable.id }}" ng-repeat="usertable in usertables">
+        <li class="item item-icon-right">
+          <span ng-bind="usertable['createdAt']"></span>
+          <i class="icon super-ios7-arrow-right"></i>
+        </li>
+      </super-navigate>
+
+    </ul>
+
+    <h4 ng-show="usertables.length == 0" class="assertive padding">
+      No usertables found. Create one?
+    </h4>
+
+    <super-modal-show location="usertable#new">
+      <button class="button button-full button-positive">
+        Create a new usertable
+      </button>
+    </super-modal-show>
+  </div>
+</div>
