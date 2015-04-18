@@ -15,7 +15,7 @@ angular
     //google geolocation for destination
     $scope.destClick = function() {
       $scope.destInput = document.getElementById("destination");
-      autocompleteDest = new google.maps.places.Autocomplete($scope.destInput); 
+      var autocompleteDest = new google.maps.places.Autocomplete($scope.destInput); 
       google.maps.event.addListener(autocompleteDest, 'place_changed', function() {
             $scope.destInput=autocompleteDest.getPlace().geometry.location;
       });
