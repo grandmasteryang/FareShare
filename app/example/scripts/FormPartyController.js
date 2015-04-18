@@ -1,6 +1,6 @@
 angular
   .module('example')
-  .controller("FormPartyController", function ($scope, Taxidata, supersonic) {
+  .controller("FormPartyController", function ($scope, Taxidata,  supersonic) {
     $scope.taxidata = {};
 
     //google geolocation for departure

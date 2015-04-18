@@ -13,7 +13,7 @@ angular
     $scope.refreshTaxis = function() {
       location.reload();
     };
-    
+    //$filter('date')(Taxidata.departDate)
 //    $scope.queryDate={};
 //    $scope.filterByDate = function(taxidata){
 //        return $scope.queryDate[taxidata.departDate];
