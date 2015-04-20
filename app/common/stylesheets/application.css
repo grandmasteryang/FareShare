@@ -24,3 +24,14 @@ a.button-color:link{
 a.button-color:visited {color:black;} /* visited link */
 a.button-color:hover {color:black;}   /* mouse over link */
 a.button-color:active {color:black;}  /* selected link */
+
+
+.login{
+display: block;
+text-align: center;
+}
+input.login[type=text] {
+  float: center;
+  display: block;
+  height: 60px; 
+}
