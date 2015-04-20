@@ -1,3 +1,3 @@
 angular
-  .module('usertable')
-  .constant('Usertable', supersonic.data.model('userTable'));
+  .module('example')
+  .constant('Usertable',  supersonic.data.model('userTable'));

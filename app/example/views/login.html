@@ -1,39 +1,54 @@
-<div ng-controller="loginController" class="login">
+<div ng-controller="LoginController" class="login">
     <super-navbar>
     <super-navbar-title>
     FareShare                
     </super-navbar-title> 
     </super-navbar>
-<form  ng-show="log" class="login-form" >
-    <br>
-  <div><h3>Log In</h3></div>
-    <div>
-        <input type="text" id="login-username" height="50" placeholder="Username" />
-    </div>
-    <div>
-        <input type="password" id="login-password" placeholder="Password" />
-    </div>
-  <div style=" margin:5px"><button>Log In</button></div>
-  <div style=" margin:5px"><button ng-click="log=!log">New User</button></div>
-</form>
+    <form  ng-show="logg" class="login-form" >
+        <br>
+      <div><h3>Log In</h3></div>
+        <div>
+            <input type="text" id="login-username" height="50" placeholder="Username" />
+        </div>
+        <div>
+            <input type="password" id="login-password" placeholder="Password" />
+        </div>
+      <div style=" margin:5px"><button>Log In</button></div>
+      <div style=" margin:5px"><button ng-click="logg=!logg">New User</button></div>
+    </form>
 
-<form ng-show="!log">
-    <br>
-  <div><h3>Sign Up</h3></div>
-    <div>
-        <input type="text" id="signup-username" placeholder="Username" />
+    <form ng-show="!logg">
+        <br>
+        <div><h3>Sign Up</h3></div>
+        <div>
+            <input type="text" id="signup-username" placeholder="Username" />
+        </div>
+        <div>
+            <input type="password" id="signup-password" placeholder="Create a Password" />
+        </div>
+            <button>Sign Up</button>
+        <div style=" margin:5px"><button ng-click="logg=!logg">Have account</button></div>
+      
+    </form>
+    <div id="User-row-container">
+        <div class="userRow" ng-repeat="userdata in userdatas">
+            <div class="row">
+                <div class='col-xs-12'>
+                    <p><b><span>Name:</span></b><span ng-bind="userdata['userName']"></span></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <input type="password" id="signup-password" placeholder="Create a Password" />
-    </div>
-  <button>Sign Up</button>
-      <div style=" margin:5px"><button ng-click="log=!log">Have account</button></div>
-</form>
 </div>
-
-
-
-
-
-
+    <!--
+	<div id="User-row-container">
+        <div class="userRow" ng-repeat="userdata in userdatas">
+            <div class="row">
+                <div class='col-xs-12'>
+                    <p><b><span>Name:</span></b><span ng-bind="userdata['userName']"></span></p>
+                </div>
+            </div>
+      	</div>
+    </div>
+    -->
 
