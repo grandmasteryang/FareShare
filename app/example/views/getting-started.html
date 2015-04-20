@@ -15,10 +15,12 @@
         <input ng-model="query.destAddr" type="text" placeholder="Destination Address">
     </lable>
    
-     <div class="form-group">
+
     <label for="departureDate">Departure Date</label>
     <input type="date" ng-model="query.departDate">
-    </div>
+
+    <label for="departureTime">Departure Time</label>
+    <input type="time" ng-model="query.departTime">
     <div id="Taxi-row-container">
         <div class="taxiRow" ng-repeat="taxidata in taxidatas|filter:myfilter">
             <div class="row">
