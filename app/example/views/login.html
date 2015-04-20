@@ -1,20 +1,39 @@
-<div ng-controller="loginController" class="container-fluid">>
-	<section id="content">
-		<form action="">
-			<h1>Login Form</h1>
-			<div>
-				<input type="username" placeholder="Username" required="" id="username" />
-			</div>
-			<div>
-				<input type="password" placeholder="Password" required="" id="password" />
-			</div>
-			<div>
-				<input type="submit" value="Log in" />
-				<div><a href="#">Lost your password?</a>{{hello}}</div>
-				<div><a href="#">Register</a></div>
-			</div>
-		</form><!-- form -->
-		<div class="button">
-		</div><!-- button -->
-	</section><!-- content -->
+<div ng-controller="loginController" class="login">
+    <super-navbar>
+    <super-navbar-title>
+    FareShare                
+    </super-navbar-title> 
+    </super-navbar>
+<form  ng-show="false" class="login-form" >
+    <br>
+  <div><h3>Log In</h3></div>
+    <div>
+        <input type="text" id="login-username" height="50" placeholder="Username" />
+    </div>
+    <div>
+        <input type="password" id="login-password" placeholder="Password" />
+    </div>
+  <div style=" margin:5px"><button>Log In</button></div>
+  <div style=" margin:5px"><button ng-click="log=!log">New User</button></div>
+</form>
+
+<form ng-show="false">
+    <br>
+  <div><h3>Sign Up</h3></div>
+    <div>
+        <input type="text" id="signup-username" placeholder="Username" />
+    </div>
+    <div>
+        <input type="password" id="signup-password" placeholder="Create a Password" />
+    </div>
+  <button>Sign Up</button>
+      <div style=" margin:5px"><button ng-click="log=!log">Have account</button></div>
+</form>
 </div>
+
+
+
+
+
+
+

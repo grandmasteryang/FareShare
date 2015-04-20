@@ -1,6 +1,7 @@
 angular
   .module('example')
-  .controller("LoginController", function ($scope, Taxidata, userTable, supersonic) {
- 
+  .controller("loginController", function ($scope, Taxidata, supersonic) {
+    $scope.log = true ;
 
   });
+

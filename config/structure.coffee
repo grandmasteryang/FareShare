@@ -12,14 +12,15 @@ module.exports =
     {
       title: "Form Party"
       id: "form-party"
-      #location: "example#form-party"
-      location: "example#login"
+      location: "example#form-party"
+      #location: "example#login"
     }
-    #{
-    #  title: "My Taxi"
-    #  id: "my-taxi"
-    #  location: "taxidata#index" # URLs are supported!
-    #}
+    {
+      title: "My Taxi"
+      id: "my-taxi"
+      #location: "taxidata#index" # URLs are supported!
+      location: "example#login" 
+    }
   ]
   rootView:
       location: "example#getting-started"
