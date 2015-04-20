@@ -11,6 +11,13 @@ border-bottom-color:#00B5FF;
 font-size: 15px;
 }
 
+div.userRow{
+border-bottom:solid;
+border-width:3px;
+border-bottom-color:#00B5FF;
+font-size: 15px;
+}
+
 a.button-color:link{
     color: black
 }
