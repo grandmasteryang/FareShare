@@ -36,54 +36,54 @@ angular
     $scope.myfilter = function(element){
 
       var DateString = "";
-      var TimeString = "";
+      var timeBool = true;
+      var timeInt1 = "";
+      var parsedint1 = 0;
+      var parsedint2 = 0;
+     
 
       
-      if ($scope.departureInput && $scope.destInput)
+      if ($scope.departDate)
       {
         DateString = String($scope.departDate.getMonth() + 1) + "/"
           + String($scope.departDate.getDate()) + "/" 
           + String($scope.departDate.getFullYear());
       }
-      
+       
       if ($scope.departTime)
       {
-        TimeString = String($scope.departTime.getHours()) + ":"
-          + String($scope.departTime.getMinutes()); 
-      }
+        // $scope.departTime is an object
+        // element['departTime'] is a string
+
+    
+        timeINT1 = element['departTime'].split(":");
+
+
+        parsedint1 = (60* parseInt(timeINT1[0])) + parseInt(timeINT1[1]);
+        parsedint2 = 60 * $scope.departTime.getHours() + $scope.departTime.getMinutes();
       
-      var deptBool = (element['deptAddr'].indexOf($scope.deptAddr)>=0);
-      var destBool = (element['destAddr'].indexOf($scope.destAddr)>=0);
+
+        if (Math.abs(parsedint1 - parsedint2) > 60.0)
+        {
+          timeBool = false;
+        }
+      }
+
+
+      
+      
       var dateBool = (element['departDate'] == DateString);
       //take out
-      var timeBool = (element['departTime'] == TimeString);
-      
-
-      deptBool = deptBool || (!$scope.deptAddr);
-      destBool = destBool || (!$scope.destAddr);
       dateBool = dateBool || (!$scope.departDate);
-      //take out
-      timeBool = timeBool || (!$scope.departTime);
       
 
-      // var timeINT1 = element['departTime'].split(":");
-      // var timeINT2 = $scope.departTime.split(":");
-      // var timeint1 = parseInt(timeINT1[0]) + (60 * parseInt(timeINT1[1]));
-      // var timeint2 = parseInt(timeINT2[0]) + (60 * parseInt(timeINT2[1]));
-
-      // if(Math.abs（timeint1 - timeint2）<= 60){
-      //   var timeBool = true;
-      // }
-      // else{
-      //   timeBool = false;
-      // }
-
-      dbDept = new google.maps.LatLng(element['deptObj'].k, element['deptObj'].D);
-      dbDest = new google.maps.LatLng(element['destObj'].k, element['destObj'].D);
-      
-
+     
       var withinDept = true;
       var withinDest = true;
+
+      
+      dbDept = new google.maps.LatLng(element['deptObj'].k, element['deptObj'].D);
+      dbDest = new google.maps.LatLng(element['destObj'].k, element['destObj'].D);
 
       //if departure location and filter is within
       if ($scope.distanceDept > 5) {
@@ -93,6 +93,7 @@ angular
       if ($scope.distanceDest > 5) {
         withinDest = false;
       }
+      
 
       return (timeBool && dateBool && withinDept && withinDest);
     }; 
