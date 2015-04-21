@@ -67,11 +67,11 @@ angular
       var withinDest = false;
 
       //if departure location and filter is within
-      if (withinDept <= 1) {
+      if ($scope.distanceDept <= 1) {
         withinDept = true;
       }
       //if destination location and filter is within
-      if (withinDest <= 1) {
+      if ($scope.distanceDest <= 1) {
         withinDest = true;
       }
       return (timeBool && dateBool && withinDept && withinDest);//&&timeBool);
