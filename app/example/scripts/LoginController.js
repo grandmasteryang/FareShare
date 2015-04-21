@@ -6,12 +6,12 @@ angular
     $scope.userdata = {};
     $scope.userdatas = null;
     //$scope.users = null;
-    $scope.loginButton = "Login";
-
+    
     Usertable.findAll().then( function (userdatas) {
          $scope.userdatas = userdatas;         
     });
 
+    $scope.loginButton = "Log In";
     $scope.clickLogin = function() {
       var flag = false;
       $scope.username = document.getElementById('login-username').value;
