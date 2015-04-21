@@ -62,6 +62,7 @@ angular
       }
       else if ($scope.signupButton == "Login"){
         supersonic.ui.initialView.dismiss();
+        $scope.signupButton = "Sigh Up";
       }
     };
 

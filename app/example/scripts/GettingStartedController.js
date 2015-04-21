@@ -7,6 +7,7 @@ angular
     Taxidata.all().whenChanged( function (taxidatas) {
         $scope.$apply( function () {
           $scope.taxidatas = taxidatas;  
+
     	});	
     });
 
@@ -15,7 +16,9 @@ angular
     };
 
     $scope.logOut = function() {
+      
       supersonic.ui.initialView.show();
+
     };
 
 

@@ -4,6 +4,11 @@ angular
     $scope.taxidata = null;
     $scope.showSpinner = true;
     $scope.dataId = undefined;
+    $scope.username = "gan";
+
+    supersonic.data.channel('user_name').subscribe( function(message) {
+      $scope.username = message;
+    });
 
     var _refreshViewData = function () {
       Taxidata.find($scope.dataId).then( function (taxidata) {
