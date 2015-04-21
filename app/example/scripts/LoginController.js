@@ -6,7 +6,6 @@ angular
     $scope.userdata = {};
     $scope.userdatas = null;
     //$scope.users = null;
-    
     Usertable.findAll().then( function (userdatas) {
          $scope.userdatas = userdatas;         
     });
