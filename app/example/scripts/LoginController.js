@@ -52,16 +52,13 @@ angular
           if (flag == false){
             newuserdata = new Usertable($scope.userdata);
             newuserdata.save();
-            $scope.signupButton = "Login";
             alert("Successfully sign up!");
+            supersonic.ui.initialView.dismiss();
           }
           else {
             alert("Same username existed!! Input a new one:)");
           }
         }
-      }
-      else if ($scope.signupButton == "Login"){
-        supersonic.ui.initialView.dismiss();
       }
     };
 
