@@ -9,19 +9,19 @@
         </super-navbar-button>
     </super-navbar>
     <lable>
-        <input ng-model="query.deptAddr" type="text" placeholder="Departure Address" id="departureLocation" ng-click="departClick()">
+        <input ng-model="deptAddr" type="text" placeholder="Departure Address" id="departureLocation" ng-click="departClick()">
     </lable>
     <lable>
-        <input ng-model="query.destAddr" type="text" placeholder="Destination Address" 
+        <input ng-model="destAddr" type="text" placeholder="Destination Address" 
         id="destination" ng-click="destClick()">
     </lable>
    
 
     <label for="departureDate">Departure Date</label>
-    <input type="date" ng-model="query.departDate">
+    <input type="date" ng-model="departDate">
 
     <label for="departureTime">Departure Time</label>
-    <input type="time" ng-model="query.departTime">
+    <input type="time" ng-model="departTime">
     <div id="Taxi-row-container">
         <div class="taxiRow" ng-repeat="taxidata in taxidatas|filter:myfilter">
             <div class="row">

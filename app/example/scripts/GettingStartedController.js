@@ -33,35 +33,37 @@ angular
     }
 
     $scope.myfilter = function(element){
-      var DateString = String($scope.query.departDate.getMonth() + 1) + "/"
-          + String($scope.query.departDate.getDate()) + "/" 
-          + String($scope.query.departDate.getFullYear());
-      var TimeString = String($scope.query.departTime.getHours()) + ":"
-          + String($scope.query.departTime.getMinutes());
-      return(
-        ((element['deptAddr'].indexOf($scope.query.deptAddr))>=0)&&(element['destAddr'].indexOf($scope.query.destAddr)>=0)
-        &&(element['departDate'] == DateString)&&(element['departTime'] == TimeString)
-        );
-    } 
-    //$scope.query = function(){
-    
-    //$scope.query.date=String($scope.query.date.getMonth() + 1) + "/"
-    //   + String($scope.query.date.getDate()) + "/" 
-    //   + String($scope.query.date.getFullYear());
-    
-    // } 
-//    $scope.queryDate={};
-//    $scope.filterByDate = function(taxidata){
-//        return $scope.queryDate[taxidata.departDate];
-//    }
-    // $scope.updateSeats = function(taxidata) {
-    //   if (taxidata['remainingSeats'] == 0) {
-    //     alert("No available seats!")
-    //   }
-    // 	else {
-    // 		taxidata['remainingSeats']--;
-    // 		taxidata.save();
-    // 	}
-    // };
+      
+      var DateString = "";
+      var TimeString = "";
+
+      
+      if ($scope.departDate)
+      {
+        DateString = String($scope.departDate.getMonth() + 1) + "/"
+          + String($scope.departDate.getDate()) + "/" 
+          + String($scope.departDate.getFullYear());
+      }
+      
+      if ($scope.departTime)
+      {
+        TimeString = String($scope.departTime.getHours()) + ":"
+          + String($scope.departTime.getMinutes()); 
+      }
+      
+      var deptBool = (element['deptAddr'].indexOf($scope.deptAddr)>=0);
+      var destBool = (element['destAddr'].indexOf($scope.destAddr)>=0);
+      var dateBool = (element['departDate'] == DateString);
+      var timeBool = (element['departTime'] == TimeString);
+
+      deptBool = deptBool || (!$scope.deptAddr);
+      destBool = destBool || (!$scope.destAddr);
+      dateBool = dateBool || (!$scope.departDate);
+      timeBool = timeBool || (!$scope.departTime);
+      
+
+      return (timeBool && dateBool && deptBool && destBool);//&&timeBool);
+    }
+  
 
   });
