@@ -13,6 +13,12 @@ angular
     $scope.refreshTaxis = function() {
       location.reload();
     };
+
+    $scope.logOut = function() {
+      supersonic.ui.initialView.show();
+    };
+
+
     $scope.myfilter = function(element){
       var newString = String($scope.query.departDate.getMonth() + 1) + "/"
           + String($scope.query.departDate.getDate()) + "/" 
