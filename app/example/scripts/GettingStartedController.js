@@ -15,6 +15,9 @@ angular
       var autocompleteDep = new google.maps.places.Autocomplete($scope.departureInput); 
       google.maps.event.addListener(autocompleteDep, 'place_changed', function() {
             $scope.departureInput=autocompleteDep.getPlace().geometry.location;
+            filterDept = new google.maps.LatLng($scope.departureInput.lat(), $scope.departureInput.lng());
+            //computeDistance returns distance in meters, divide by 1609 to change to miles
+            $scope.distanceDept = google.maps.geometry.spherical.computeDistanceBetween(filterDept, dbDept)/1609.34;
       });
     };
 
@@ -24,6 +27,9 @@ angular
       var autocompleteDest = new google.maps.places.Autocomplete($scope.destInput); 
       google.maps.event.addListener(autocompleteDest, 'place_changed', function() {
             $scope.destInput=autocompleteDest.getPlace().geometry.location;
+            filterDest = new google.maps.LatLng($scope.destInput.lat(), $scope.destInput.lng());
+            //computeDistance returns distance in meters, divide by 1609 to change to miles
+            $scope.distanceDest = google.maps.geometry.spherical.computeDistanceBetween(filterDest, dbDest)/1609.34;
       });
     };
 
@@ -55,25 +61,22 @@ angular
       dateBool = dateBool || (!$scope.departDate);
       timeBool = timeBool || (!$scope.departTime);
 
-      var filterDept = new google.maps.LatLng($scope.departureInput.lat(), $scope.departureInput.lng());
-      var filterDest = new google.maps.LatLng($scope.destInput.lat(), $scope.destInput.lng());
-      var dbDept = new google.maps.LatLng(element['deptObj'].D, element['deptObj'].k);
-      var dbDest = new google.maps.LatLng(element['destObj'].D, element['destObj'].k);
-      //computeDistance returns distance in meters, divide by 1609 to change to miles
-      $scope.distanceDept = google.maps.geometry.spherical.computeDistanceBetween(filterDept, dbDept)/1609;
-      $scope.distanceDest = google.maps.geometry.spherical.computeDistanceBetween(filterDest, dbDest)/1609;
+      dbDept = new google.maps.LatLng(element['deptObj'].k, element['deptObj'].D);
+      dbDest = new google.maps.LatLng(element['destObj'].k, element['destObj'].D);
+      
 
-      var withinDept = false;
-      var withinDest = false;
+      var withinDept = true;
+      var withinDest = true;
 
       //if departure location and filter is within
-      if ($scope.distanceDept <= 1) {
-        withinDept = true;
+      if ($scope.distanceDept > 5) {
+        withinDept = false;
       }
       //if destination location and filter is within
-      if ($scope.distanceDest <= 1) {
-        withinDest = true;
+      if ($scope.distanceDest > 5) {
+        withinDest = false;
       }
+
       return (timeBool && dateBool && withinDept && withinDest);//&&timeBool);
     }; 
 
