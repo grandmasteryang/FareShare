@@ -13,6 +13,25 @@ angular
     $scope.refreshTaxis = function() {
       location.reload();
     };
+
+    //google geolocation for departure
+    $scope.departClick = function() {
+      $scope.departureInput = document.getElementById("departureLocation");
+      var autocompleteDep = new google.maps.places.Autocomplete($scope.departureInput); 
+      google.maps.event.addListener(autocompleteDep, 'place_changed', function() {
+            $scope.departureInput=autocompleteDep.getPlace().geometry.location;
+      });
+    }
+
+    //google geolocation for destination
+    $scope.destClick = function() {
+      $scope.destInput = document.getElementById("destination");
+      var autocompleteDest = new google.maps.places.Autocomplete($scope.destInput); 
+      google.maps.event.addListener(autocompleteDest, 'place_changed', function() {
+            $scope.destInput=autocompleteDest.getPlace().geometry.location;
+      });
+    }
+
     $scope.myfilter = function(element){
       var DateString = String($scope.query.departDate.getMonth() + 1) + "/"
           + String($scope.query.departDate.getDate()) + "/" 
