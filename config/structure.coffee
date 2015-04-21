@@ -17,11 +17,16 @@ module.exports =
     #{
     #  title: "My Taxi"
     #  id: "my-taxi"
-    #  location: "taxidata#index" # URLs are supported!
+    #  #location: "userTable#index" # URLs are supported!
+    #  location: "example#login"
     #}
   ]
   rootView:
       location: "example#getting-started"
+
+  initialView:
+    id: "initialView"
+    location: "example#login"
 
   preloads: [
     {

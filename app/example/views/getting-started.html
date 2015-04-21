@@ -7,6 +7,9 @@
         <super-navbar-button side="right" ng-click="refreshTaxis()">
             refresh
         </super-navbar-button>
+        <super-navbar-button side="left" ng-click="logOut()">
+            log out
+        </super-navbar-button>
     </super-navbar>
     <lable>
         <input ng-model="query.deptAddr" type="text" placeholder="Departure Address">
@@ -14,11 +17,14 @@
     <lable>
         <input ng-model="query.destAddr" type="text" placeholder="Destination Address">
     </lable>
-<!--    <lable>
-        <input ng-model="query.departDate" type="date">
-    </lable>   -->
+   
+     <div class="form-group">
+    <label for="departureDate">Departure Date</label>
+    <input type="date" ng-model="query.departDate">
+    </div>
+    
     <div id="Taxi-row-container">
-        <div class="taxiRow" ng-repeat="taxidata in taxidatas|filter:query">
+        <div class="taxiRow" ng-repeat="taxidata in taxidatas">
             <div class="row">
                 <div class="col-xs-7">
                     <p><b><span>From: </b></span><span ng-bind="taxidata['deptAddr']"></span></p>

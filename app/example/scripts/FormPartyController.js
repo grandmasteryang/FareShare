@@ -1,12 +1,12 @@
 angular
   .module('example')
-  .controller("FormPartyController", function ($scope, Taxidata, supersonic) {
+  .controller("FormPartyController", function ($scope, Taxidata, Usertable, supersonic) {
     $scope.taxidata = {};
 
     //google geolocation for departure
     $scope.departClick = function() {
       $scope.departureInput = document.getElementById("departureLocation");
-      $scope.autocompleteDep = new google.maps.places.Autocomplete($scope.departureInput); 
+      var autocompleteDep = new google.maps.places.Autocomplete($scope.departureInput); 
       google.maps.event.addListener(autocompleteDep, 'place_changed', function() {
             $scope.departureInput=autocompleteDep.getPlace().geometry.location;
       });
@@ -15,7 +15,7 @@ angular
     //google geolocation for destination
     $scope.destClick = function() {
       $scope.destInput = document.getElementById("destination");
-      $scope.autocompleteDest = new google.maps.places.Autocomplete($scope.destInput); 
+      var autocompleteDest = new google.maps.places.Autocomplete($scope.destInput); 
       google.maps.event.addListener(autocompleteDest, 'place_changed', function() {
             $scope.destInput=autocompleteDest.getPlace().geometry.location;
       });
@@ -29,7 +29,9 @@ angular
       $scope.taxidata['deptAddr'] = document.getElementById('departureLocation').value;
       $scope.taxidata['destAddr'] = document.getElementById('destination').value;
 
-
+      $scope.taxidata['deptObj'] = $scope.departureInput;
+      $scope.taxidata['destObj'] = $scope.destInput;
+      
       if (!$scope.taxidata['departDate'] || !$scope.taxidata['departTime'] 
           || !$scope.taxidata['deptAddr'] || !$scope.taxidata['destAddr']){
         alert("Please fill in all fields.")
