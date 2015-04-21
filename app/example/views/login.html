@@ -13,7 +13,7 @@
         <div>
             <input type="password" id="login-password" placeholder="Password" />
         </div>
-      <div style=" margin:5px"><button>Log In</button></div>
+      <div style=" margin:5px"><button ng-click= "clickLogin()">{{loginButton}}</button></div>
       <div style=" margin:5px"><button ng-click="logg=!logg">New User</button></div>
     </form>
 
@@ -26,19 +26,10 @@
         <div>
             <input type="password" id="signup-password" placeholder="Create a Password" />
         </div>
-            <button>Sign Up</button>
-        <div style=" margin:5px"><button ng-click="logg=!logg">Have account</button></div>
-      
+            <button ng-click= "clickSignup()">{{signupButton}}</button>
+        <div style=" margin:5px"><button ng-click="logg=!logg">Have account</button></div>      
     </form>
-    <div id="User-row-container">
-        <div class="userRow" ng-repeat="userdata in userdatas">
-            <div class="row">
-                <div class='col-xs-12'>
-                    <p><b><span>Name:</span></b><span ng-bind="userdata['userName']"></span></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
     <!--
 	<div id="User-row-container">
