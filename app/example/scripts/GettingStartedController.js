@@ -28,8 +28,6 @@ angular
     };
 
     $scope.myfilter = function(element){
-<<<<<<< HEAD
-
       var DateString = "";
       var TimeString = "";
 
@@ -61,16 +59,26 @@ angular
       var filterDest = new google.maps.LatLng($scope.destInput.lat(), $scope.destInput.lng());
       var dbDept = new google.maps.LatLng(element['deptObj'].D, element['deptObj'].k);
       var dbDest = new google.maps.LatLng(element['destObj'].D, element['destObj'].k);
-      $scope.distanceDept = google.maps.geometry.spherical.computeDistanceBetween(filterDept, dbDept);
-      $scope.distanceDest = google.maps.geometry.spherical.computeDistanceBetween(filterDest, dbDest);
+      //computeDistance returns distance in meters, divide by 1609 to change to miles
+      $scope.distanceDept = google.maps.geometry.spherical.computeDistanceBetween(filterDept, dbDept)/1609;
+      $scope.distanceDest = google.maps.geometry.spherical.computeDistanceBetween(filterDest, dbDest)/1609;
 
-      return (timeBool && dateBool && deptBool && destBool);//&&timeBool);
+      var withinDept = false;
+      var withinDest = false;
+
+      //if departure location and filter is within
+      if (withinDept <= 1) {
+        withinDept = true;
+      }
+      //if destination location and filter is within
+      if (withinDest <= 1) {
+        withinDest = true;
+      }
+      return (timeBool && dateBool && withinDept && withinDest);//&&timeBool);
     }; 
 
     $scope.refreshTaxis = function() {
-      //location.reload();
-      alert($scope.distanceDept);
-      //alert("HI");
+      location.reload();
     };
 
     //$scope.query = function(){
