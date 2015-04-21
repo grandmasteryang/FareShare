@@ -20,7 +20,7 @@ angular
       for (i = 0; i < $scope.userdatas.length; i++){
         if ($scope.username != "" && $scope.password != "" && $scope.userdatas[i].userName == $scope.username && $scope.userdatas[i].userPassword == $scope.password){           
           flag = true;
-          supersonic.ui.tabs.select(0);
+          supersonic.ui.initialView.dismiss();
           //window.open("getting-started.html")
           break;
         }          
@@ -61,9 +61,12 @@ angular
         }
       }
       else if ($scope.signupButton == "Login"){
-        supersonic.ui.tabs.select(0);
+        supersonic.ui.initialView.dismiss();
       }
     };
+
+
+
 
     /*
     var usert = supersonic.data.model('userTable');

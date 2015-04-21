@@ -24,6 +24,10 @@ module.exports =
   rootView:
       location: "example#getting-started"
 
+  initialView:
+    id: "initialView"
+    location: "example#login"
+
   preloads: [
     {
       id: "full-details"
