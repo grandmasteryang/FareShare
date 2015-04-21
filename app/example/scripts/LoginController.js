@@ -18,7 +18,7 @@ angular
       $scope.password = document.getElementById('login-password').value;
 
       for (i = 0; i < $scope.userdatas.length; i++){
-        if ($scope.userdatas[i].userName == $scope.username && $scope.userdatas[i].userPassword == $scope.password){           
+        if ($scope.userdatas[i].userName != "" && $scope.userdatas[i].userName == $scope.username && $scope.userdatas[i].userPassword == $scope.password){           
           flag = true;
           supersonic.ui.tabs.select(0);
           //window.open("getting-started.html")
