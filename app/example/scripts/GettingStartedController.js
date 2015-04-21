@@ -34,11 +34,12 @@ angular
     };
 
     $scope.myfilter = function(element){
+
       var DateString = "";
       var TimeString = "";
 
       
-      if ($scope.departDate)
+      if ($scope.departureInput && $scope.destInput)
       {
         DateString = String($scope.departDate.getMonth() + 1) + "/"
           + String($scope.departDate.getDate()) + "/" 
@@ -54,12 +55,28 @@ angular
       var deptBool = (element['deptAddr'].indexOf($scope.deptAddr)>=0);
       var destBool = (element['destAddr'].indexOf($scope.destAddr)>=0);
       var dateBool = (element['departDate'] == DateString);
+      //take out
       var timeBool = (element['departTime'] == TimeString);
+      
 
       deptBool = deptBool || (!$scope.deptAddr);
       destBool = destBool || (!$scope.destAddr);
       dateBool = dateBool || (!$scope.departDate);
+      //take out
       timeBool = timeBool || (!$scope.departTime);
+      
+
+      // var timeINT1 = element['departTime'].split(":");
+      // var timeINT2 = $scope.departTime.split(":");
+      // var timeint1 = parseInt(timeINT1[0]) + (60 * parseInt(timeINT1[1]));
+      // var timeint2 = parseInt(timeINT2[0]) + (60 * parseInt(timeINT2[1]));
+
+      // if(Math.abs（timeint1 - timeint2）<= 60){
+      //   var timeBool = true;
+      // }
+      // else{
+      //   timeBool = false;
+      // }
 
       dbDept = new google.maps.LatLng(element['deptObj'].k, element['deptObj'].D);
       dbDest = new google.maps.LatLng(element['destObj'].k, element['destObj'].D);
@@ -77,7 +94,7 @@ angular
         withinDest = false;
       }
 
-      return (timeBool && dateBool && withinDept && withinDest);//&&timeBool);
+      return (timeBool && dateBool && withinDept && withinDest);
     }; 
 
     $scope.refreshTaxis = function() {
