@@ -17,10 +17,16 @@ angular
       var flag = false;
       $scope.username = document.getElementById('login-username').value;
       $scope.password = document.getElementById('login-password').value;
-
+      var message = {
+        sender: "example#login",
+        content: "a new beer brewed"
+      };
+      supersonic.data.channel('public_announcements').publish(message);
       for (i = 0; i < $scope.userdatas.length; i++){
         if ($scope.username != "" && $scope.password != "" && $scope.userdatas[i].userName == $scope.username && $scope.userdatas[i].userPassword == $scope.password){           
           flag = true;
+          document.getElementById("login-password").value = "";
+          localStorage.username2=$scope.username;
           supersonic.ui.initialView.dismiss();
           //window.open("getting-started.html")
           break;
@@ -53,17 +59,27 @@ angular
           if (flag == false){
             newuserdata = new Usertable($scope.userdata);
             newuserdata.save();
-            $scope.signupButton = "Login";
+            localStorage.username2=$scope.userdata['userName'];
             alert("Successfully sign up!");
+            supersonic.ui.initialView.dismiss();
           }
           else {
             alert("Same username existed!! Input a new one:)");
           }
         }
+        document.getElementById("signup-firstname").value = "";
+        document.getElementById("signup-lastname").value = "";
+        document.getElementById("signup-username").value = "";
+        document.getElementById("signup-password").value = "";
+        document.getElementById("signup-phonenumber").value = "";
       }
       else if ($scope.signupButton == "Login"){
-        supersonic.ui.initialView.dismiss();
+        
       }
+
+      
+
+      
     };
 
 

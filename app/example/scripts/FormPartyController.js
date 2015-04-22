@@ -2,6 +2,8 @@ angular
   .module('example')
   .controller("FormPartyController", function ($scope, Taxidata, Usertable, supersonic) {
     $scope.taxidata = {};
+  
+    document.getElementById("user-info").innerHTML = "User: " + localStorage.username2 ;
 
     //google geolocation for departure
     $scope.departClick = function() {

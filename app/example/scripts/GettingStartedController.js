@@ -17,7 +17,10 @@ angular
     $scope.logOut = function() {
       supersonic.ui.initialView.show();
     };
-
+    document.getElementById("user-info").innerHTML = "User: " + localStorage.username2 ;
+    supersonic.data.channel('public_announcements').subscribe( function(message) {
+        $scope.username=message;
+    });
 
     $scope.myfilter = function(element){
       var newString = String($scope.query.departDate.getMonth() + 1) + "/"

@@ -14,7 +14,7 @@ angular
       });
     }
 
-   
+    document.getElementById("user-info").innerHTML = "User: " + localStorage.username2 ;
     $scope.joinButton = "Join Taxi";
 
     $scope.clickJoin = function(taxidata) {
