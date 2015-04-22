@@ -59,7 +59,9 @@ angular
           if (flag == false){
             newuserdata = new Usertable($scope.userdata);
             newuserdata.save();
+
             localStorage.username2=$scope.userdata['userName'];
+
             alert("Successfully sign up!");
             supersonic.ui.initialView.dismiss();
           }
@@ -73,13 +75,8 @@ angular
         document.getElementById("signup-password").value = "";
         document.getElementById("signup-phonenumber").value = "";
       }
-      else if ($scope.signupButton == "Login"){
-        
-      }
 
-      
 
-      
     };
 
 
