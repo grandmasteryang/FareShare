@@ -1,6 +1,6 @@
 angular
   .module('example')
-  .controller("FullDetailsController", function ($scope, Taxidata, supersonic) {
+  .controller("FullDetailsController", function ($scope, Taxidata, Usertable, supersonic) {
     $scope.taxidata = null;
     $scope.showSpinner = true;
     $scope.dataId = undefined;

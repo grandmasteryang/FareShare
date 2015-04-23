@@ -7,6 +7,9 @@
         <super-navbar-button side="right" ng-click="refreshTaxis()">
             refresh
         </super-navbar-button>
+        <super-navbar-button side="left" ng-click="logOut()">
+            log out
+        </super-navbar-button>
     </super-navbar>
     <lable>
         <input ng-model="deptAddr" type="text" placeholder="Departure Address" id="departureLocation" ng-click="departClick()">
@@ -15,8 +18,6 @@
         <input ng-model="destAddr" type="text" placeholder="Destination Address" 
         id="destination" ng-click="destClick()">
     </lable>
-   
-
     <label for="departureDate">Departure Date</label>
     <input type="date" ng-model="departDate">
 

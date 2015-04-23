@@ -1,6 +1,6 @@
 angular
   .module('example')
-  .controller("GettingStartedController", function ($scope, Taxidata, supersonic) {
+  .controller("GettingStartedController", function ($scope, Taxidata, Usertable, supersonic) {
     $scope.taxidatas = null;
     var filterDept;
     var filterDest;
@@ -110,6 +110,10 @@ angular
 
     $scope.refreshTaxis = function() {
       location.reload();
+    };
+
+    $scope.logOut = function() {
+      supersonic.ui.initialView.show();
     };
 
     //$scope.query = function(){

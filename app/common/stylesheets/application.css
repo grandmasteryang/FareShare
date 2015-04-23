@@ -4,7 +4,24 @@
   font-weight: 600;
 }
 
+.login{
+display: block;
+text-align: center;
+}
+input.login[type=text] {
+  float: center;
+  display: block;
+  height: 60px; 
+}
+
 div.taxiRow{
+border-bottom:solid;
+border-width:3px;
+border-bottom-color:#00B5FF;
+font-size: 15px;
+}
+
+div.userRow{
 border-bottom:solid;
 border-width:3px;
 border-bottom-color:#00B5FF;
@@ -17,3 +34,89 @@ a.button-color:link{
 a.button-color:visited {color:black;} /* visited link */
 a.button-color:hover {color:black;}   /* mouse over link */
 a.button-color:active {color:black;}  /* selected link */
+
+div#login-header{
+    width: 100%;
+    height: 55px;
+    border: 0px rgb(89,89,89) solid;
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+    background: rgb(5, 11, 13);
+    color: rgb(252, 249, 249);
+    font-size: 28px;
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: italic;
+    text-decoration: inherit;
+    text-align: center;
+    line-height: 2em;
+}
+/*.login-form.input[type="text"] {
+    font-size: 20px;
+}}*/
+div#text-input{
+width: 100%;
+height: 40px;
+
+border: 3px rgb(89,89,89) solid;
+}
+
+
+
+/*
+button#login-button {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
+  background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+  background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+  background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+  background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
+  background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
+  background-color:#7892c2;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  border:1px solid #4e6096;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:arial;
+  font-size:19px;
+  padding:9px 34px;
+  text-decoration:none;
+}*/
+
+
+
+button#login-button  {
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  padding: 8px 21px;
+  background: -moz-linear-gradient(
+    top,
+    #000000 0%,
+    #000000);
+  background: -webkit-gradient(
+    linear, left top, left bottom,
+    from(#000000),
+    to(#000000));
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  border-radius: 14px;
+  border: 0px solid #000000;
+  -moz-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 2px rgba(255,255,255,0.7);
+  -webkit-box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 2px rgba(255,255,255,0.7);
+  box-shadow:
+    0px 1px 3px rgba(000,000,000,0.5),
+    inset 0px 0px 2px rgba(255,255,255,0.7);
+  text-shadow:
+    0px -1px 0px rgba(000,000,000,0.4),
+    0px 1px 0px rgba(255,255,255,0.3);
+}

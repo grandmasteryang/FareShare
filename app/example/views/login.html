@@ -1,0 +1,52 @@
+<div ng-controller="LoginController" class="login">
+    <super-navbar>
+    <super-navbar-title>
+    FareShare                
+    </super-navbar-title> 
+    </super-navbar>
+    <form  ng-show="logg" class="login-form" >
+      <div id="login-header">Log In</div>
+        <div id="text-input">
+            <input type="text" id="login-username" style="font-size:18px" placeholder="Username" />
+        </div>
+        <div id="text-input">
+            <input type="password" id="login-password" style="font-size:18px" placeholder="Password" />
+        </div>
+      <div style=" margin:5px"><button id="login-button" ng-click= "clickLogin()">{{loginButton}}</button></div>
+      <div style=" margin:5px"><button id="login-button" ng-click="logg=!logg">New User</button></div>
+    </form>
+
+    <form ng-show="!logg">
+        <div id="login-header">Sign Up</div>
+        <div id="text-input">
+            <input type="text" id="signup-firstname" style="font-size:18px" placeholder="Enter first name" />
+        </div>
+        <div id="text-input">
+            <input type="text" id="signup-lastname" style="font-size:18px" placeholder="Enter last name" />
+        </div>
+        <div id="text-input">
+            <input type="text" id="signup-username" style="font-size:18px" placeholder="Username" />
+        </div>
+        <div id="text-input">
+            <input type="password" id="signup-password" style="font-size:18px" placeholder="Create a Password" />
+        </div>
+        <div id="text-input">
+            <input type="text" id="signup-phonenumber" style="font-size:18px" placeholder="Enter phone number" />
+        </div >
+        <div style=" margin:5px"><button id="login-button" ng-click= "clickSignup()">{{signupButton}}</button></div>
+        <div style=" margin:5px"><button id="login-button" ng-click="logg=!logg">Has account</button></div>      
+    </form>
+    
+</div>
+    <!--
+	<div id="User-row-container">
+        <div class="userRow" ng-repeat="userdata in userdatas">
+            <div class="row">
+                <div class='col-xs-12'>
+                    <p><b><span>Name:</span></b><span ng-bind="userdata['userName']"></span></p>
+                </div>
+            </div>
+      	</div>
+    </div>
+    -->
+
