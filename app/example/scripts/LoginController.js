@@ -4,7 +4,7 @@ angular
     $scope.logg = true;
     $scope.hello = "Taxi";
     $scope.userdata = {};
-    $scope.userdatas = null;
+    $scope.userdatas = null;    
     //$scope.users = null;
 
     
