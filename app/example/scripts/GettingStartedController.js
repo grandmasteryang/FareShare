@@ -39,43 +39,30 @@ angular
       var parsedint2 = 0;
       var withinDept = true;
       var withinDest = true;
-      
-      // $scope.deptDisplay = "";
-      // deptFlag = true;
-      // for (var i=0; i<element['deptAddr'].length; i++) {
-      //   if (element['deptAddr'].charAt(i) == "," && deptFlag) {
-      //     $scope.deptDisplay += element['deptAddr'].charAt(i);
-      //     deptFlag = false;
-      //   }
-      //   else if (element['deptAddr'].charAt(i) == "," && !deptFlag) {
-      //     break;
-      //   }
-      //   else {
-      //     $scope.deptDisplay += element['deptAddr'].charAt(i);
-      //   }
+
+      // if (element['departTime'].charAt(element['departTime'].length-2) == ":") {
+      //   element['departTime'] += "0";
       // }
 
-      // element['deptAddr'] = $scope.deptDisplay;
-
-      // var displayTime = element['departTime'];
       // if (element['departTime'].length == 4) {
-      //   displayTime += " AM";
-      //   element['departTime'] = displayTime;
+      //   if (element['departTime'].charAt(0) == 0) {
+      //     element['departTime'] = "12" + ":" + element['departTime'].charAt(2) + element['departTime'].charAt(3);
+      //   } 
+      //   element['departTime'] += " AM";
       // }
+
       // else {
       //   var hour = (Number(element['departTime'].charAt(0))*10) + (Number(element['departTime'].charAt(1)));
-      //   if (hour == 10 || hour == 11) {
-      //     displayTime += " AM";
-      //     element['departTime'] = displayTime;
-      //   }
-      //   else if (hour == 12) {
-      //     displayTime += " PM";
-      //     element['departTime'] = displayTime;
-      //   }
-      //   else if (hour > 12) {
+      //   if (hour > 12) {
       //     hour -= 12;
       //     element['departTime'] = hour.toString() + ":" + element['departTime'].charAt(3) + element['departTime'].charAt(4)
       //     + " PM";
+      //     if (hour == 10 || hour == 11) {
+      //       element['departTime'] += " AM";
+      //     }
+      //     else if (hour == 12) {
+      //       element['departTime'] += " PM";
+      //     }
       //   }
       // }
 
