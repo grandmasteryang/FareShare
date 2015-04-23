@@ -40,31 +40,31 @@ angular
       var withinDept = true;
       var withinDest = true;
 
-      // if (element['departTime'].charAt(element['departTime'].length-2) == ":") {
-      //   element['departTime'] += "0";
-      // }
+      if (element['departTime'].charAt(element['departTime'].length-2) == ":") {
+        element['departTime'] += "0";
+      }
 
-      // if (element['departTime'].length == 4) {
-      //   if (element['departTime'].charAt(0) == 0) {
-      //     element['departTime'] = "12" + ":" + element['departTime'].charAt(2) + element['departTime'].charAt(3);
-      //   } 
-      //   element['departTime'] += " AM";
-      // }
+      if (element['departTime'].length == 4) {
+        if (element['departTime'].charAt(0) == 0) {
+          element['departTime'] = "12" + ":" + element['departTime'].charAt(2) + element['departTime'].charAt(3);
+        } 
+        element['departTime'] += " AM";
+      }
 
-      // else {
-      //   var hour = (Number(element['departTime'].charAt(0))*10) + (Number(element['departTime'].charAt(1)));
-      //   if (hour > 12) {
-      //     hour -= 12;
-      //     element['departTime'] = hour.toString() + ":" + element['departTime'].charAt(3) + element['departTime'].charAt(4)
-      //     + " PM";
-      //     if (hour == 10 || hour == 11) {
-      //       element['departTime'] += " AM";
-      //     }
-      //     else if (hour == 12) {
-      //       element['departTime'] += " PM";
-      //     }
-      //   }
-      // }
+      else if (element['departTime'].length == 5) {
+        var hour = (Number(element['departTime'].charAt(0))*10) + (Number(element['departTime'].charAt(1)));
+        if (hour > 12) {
+          hour -= 12;
+          element['departTime'] = hour.toString() + ":" + element['departTime'].charAt(3) + element['departTime'].charAt(4)
+          + " PM";
+        }
+        else if (hour == 10 || hour == 11) {
+          element['departTime'] += " AM";
+        }
+        else if (hour == 12) {
+          element['departTime'] += " PM";
+        }
+      }
 
       if ($scope.departDate)
       {
@@ -74,8 +74,15 @@ angular
       }
       if ($scope.departTime)
       {
-        timeINT1 = element['departTime'].split(":");
+        var timeSplit = element['departTime'].substring(0, element['departTime'].length-3);
+        timeINT1 = timeSplit.split(":");
         parsedint1 = (60* parseInt(timeINT1[0])) + parseInt(timeINT1[1]);
+        if (element['departTime'].charAt(element['departTime'].length-2) == "P" && parseInt(timeINT1[0])!=12) {
+          parsedint1 += 60*12;
+        }
+        else if (element['departTime'].charAt(element['departTime'].length-2) == "A" && parseInt(timeINT1[0])==12) {
+          parsedint1 -= 60*12;
+        }
         parsedint2 = 60 * $scope.departTime.getHours() + $scope.departTime.getMinutes();
         if (Math.abs(parsedint1 - parsedint2) > 60.0)
         {
