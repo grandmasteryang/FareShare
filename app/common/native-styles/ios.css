@@ -22,7 +22,10 @@ navigation-bar title {
 navigation-bar button, navigation-bar back-bar-button {
   color: #ffffff;
   font-weight: 300;
+  border-radius: 4px;
 }
+
+
 
 tab-bar {
   background-color: #ffffff;
