@@ -17,11 +17,7 @@ angular
       var flag = false;
       $scope.username = document.getElementById('login-username').value;
       $scope.password = document.getElementById('login-password').value;
-      var message = {
-        sender: "example#login",
-        content: "a new beer brewed"
-      };
-      supersonic.data.channel('public_announcements').publish(message);
+    
       for (i = 0; i < $scope.userdatas.length; i++){
         if ($scope.username != "" && $scope.password != "" && $scope.userdatas[i].userName == $scope.username && $scope.userdatas[i].userPassword == $scope.password){           
           flag = true;
