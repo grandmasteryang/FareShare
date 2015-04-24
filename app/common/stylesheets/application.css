@@ -4,28 +4,70 @@
   font-weight: 600;
 }
 
-.login{
-display: block;
-text-align: center;
+#login {
+    margin: 50px auto;
+    width: 95%;
+    -webkit-border-radius: 20px 20px 0 0;
+    -moz-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 20px 20px;
+    background-color: #E8E8E8;
 }
-input.login[type=text] {
-  float: center;
-  display: block;
-  height: 60px; 
+
+#login h2 {
+    text-align: center;
+    background-color: #00B5FF;
+    -webkit-border-radius: 20px 20px 0 0;
+    -moz-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
+    border-color: #00B5FF;
+    color: #fff;    
+    font-size: 24px;
+    padding: 20px 26px;
+}
+
+#login h2 span[class*="fontawesome-"] {
+    margin-right: 14px;
+}
+
+#login fieldset {
+    background-color: #E8E8E8;
+    -webkit-border-radius: 0 0 20px 20px;
+    -moz-border-radius: 0 0 20px 20px;
+    border-radius: 0 0 20px 20px;
+    padding: 20px 26px;
+}
+
+#login fieldset p {
+    color: #777;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+#login fieldset p:last-child {
+    margin-bottom: 0;
 }
 
 div.taxiRow{
-border-bottom:solid;
-border-width:3px;
-border-bottom-color:#00B5FF;
-font-size: 15px;
+  border-bottom:solid;
+  border-width:3px;
+  border-bottom-color:#00B5FF;
+  font-size: 15px;
 }
 
 div.userRow{
-border-bottom:solid;
-border-width:3px;
-border-bottom-color:#00B5FF;
-font-size: 15px;
+  border-bottom:solid;
+  border-width:3px;
+  border-bottom-color:#00B5FF;
+  font-size: 15px;
+}
+
+#login fieldset input[type="text"], #login fieldset input[type="password"] {
+    
+    background-color: #f8f8f8;
+    color: #777;
+    padding: 4px 10px;
+    width: 100%;
+
 }
 
 a.button-color:link{
@@ -56,10 +98,12 @@ div#login-header{
     font-size: 20px;
 }}*/
 div#text-input{
-width: 100%;
-height: 40px;
+  width: 100%;
+  height: 40px;
+  color: #777;
+  padding: 0px 0px 0px 0px;  
 
-border: 3px rgb(89,89,89) solid;
+  /*border: 3px rgb(89,89,89) solid;*/
 }
 
 
@@ -96,36 +140,22 @@ button#login-button {
   text-decoration:none;
 }*/
 
+.wrapper{
+  text-align: center;
+}
 
 
-button#login-button  {
-
+button#login-button {
+  margin-top: 14px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   color: #ffffff;
+  width: 125px;
   padding: 8px 21px;
-  background: -moz-linear-gradient(
-    top,
-    #000000 0%,
-    #000000);
-  background: -webkit-gradient(
-    linear, left top, left bottom,
-    from(#000000),
-    to(#000000));
+  background-color: #00B5FF;
   -moz-border-radius: 14px;
   -webkit-border-radius: 14px;
   border-radius: 14px;
   border: 0px solid #000000;
-  -moz-box-shadow:
-    0px 1px 3px rgba(000,000,000,0.5),
-    inset 0px 0px 2px rgba(255,255,255,0.7);
-  -webkit-box-shadow:
-    0px 1px 3px rgba(000,000,000,0.5),
-    inset 0px 0px 2px rgba(255,255,255,0.7);
-  box-shadow:
-    0px 1px 3px rgba(000,000,000,0.5),
-    inset 0px 0px 2px rgba(255,255,255,0.7);
-  text-shadow:
-    0px -1px 0px rgba(000,000,000,0.4),
-    0px 1px 0px rgba(255,255,255,0.3);
+ 
 }

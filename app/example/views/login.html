@@ -1,43 +1,63 @@
-<div ng-controller="LoginController" class="login">
+<div ng-controller="LoginController" class="container-fluid">
     <super-navbar>
     <super-navbar-title>
     FareShare                
     </super-navbar-title> 
     </super-navbar>
-    <form  ng-show="logg" class="login-form" >
-      <div id="login-header">Log In</div>
-        <div id="text-input">
-            <input type="text" id="login-username" style="font-size:18px" placeholder="Username" />
-        </div>
-        <div id="text-input">
-            <input type="password" id="login-password" style="font-size:18px" placeholder="Password" />
-        </div>
-      <div style=" margin:5px"><button id="login-button" ng-click= "clickLogin()">{{loginButton}}</button></div>
-      <div style=" margin:5px"><button id="login-button" ng-click="logg=!logg">New User</button></div>
-    </form>
 
-    <form ng-show="!logg">
-        <div id="login-header">Sign Up</div>
-        <div id="text-input">
-            <input type="text" id="signup-firstname" style="font-size:18px" placeholder="Enter first name" />
-        </div>
-        <div id="text-input">
-            <input type="text" id="signup-lastname" style="font-size:18px" placeholder="Enter last name" />
-        </div>
-        <div id="text-input">
-            <input type="text" id="signup-username" style="font-size:18px" placeholder="Username" />
-        </div>
-        <div id="text-input">
-            <input type="password" id="signup-password" style="font-size:18px" placeholder="Create a Password" />
-        </div>
-        <div id="text-input">
-            <input type="text" id="signup-phonenumber" style="font-size:18px" placeholder="Enter phone number" />
-        </div >
-        <div style=" margin:5px"><button id="login-button" ng-click= "clickSignup()">{{signupButton}}</button></div>
+    <div id="login">
+       
+        <form action="javascript:void(0);" ng-show="logg">
+        <h2><span class="fontawesome-lock"></span>Sign In</h2>
+            <fieldset>
 
-        <div style=" margin:5px"><button id="login-button" ng-click="logg=!logg">Go back to Login Page</button></div>      
+                <p><label for="text">Username:</label></p>
+                <p>
+                    <input type="text" id="login-username" style="font-size:16px" placeholder="Username" />
+                </p>
+                <br>
+                <p><label for="text">Password:</label></p>
+                <p>
+                    <input type="password" id="login-password" style="font-size:16px" placeholder="Password" />
+                </p>
+                    
+                <div class="wrapper"><button id="login-button" ng-click= "clickLogin()">{{loginButton}}</button></div>
 
-    </form>
+                <div class="wrapper"><button id="login-button" ng-click="logg=!logg">New User</button></div>
+            </fieldset>
+        </form>
+
+        <form action="javascript:void(0);" ng-show="!logg">
+            <h2><span class="fontawesome-lock"></span>Sign Up</h2>
+            <fieldset>
+                <p><label for="text">First Name:</label></p>
+                <p>
+                    <input type="text" id="signup-firstname" style="font-size:16px" placeholder="Enter first name" />
+                </p>
+                <p><label for="text">Last Name:</label></p>
+                <p>
+                    <input type="text" id="signup-lastname" style="font-size:16px" placeholder="Enter last name" />
+                </p>
+                <p><label for="text">Username:</label></p>
+                <p>
+                    <input type="text" id="signup-username" style="font-size:16px" placeholder="Create your Username" />
+                </p>
+                <p><label for="text">Password:</label></p>
+                <p>
+                    <input type="password" id="signup-password" style="font-size:16px" placeholder="Create a password" />
+                </p>
+                <p><label for="text">Phone Number:</label></p>
+                <p>
+                    <input type="text" id="signup-phonenumber" style="font-size:16px" placeholder="Enter your phone number" />
+                </p>
+
+                <div class="wrapper"><button id="login-button" ng-click= "clickSignup()">{{signupButton}}</button></div>
+
+                <div class="wrapper"><button id="login-button" ng-click="logg=!logg">Go Back</button></div>      
+            <fieldset>
+        </form>
+
+    </div> 
     
 </div>
     <!--
