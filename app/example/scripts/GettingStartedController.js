@@ -11,7 +11,7 @@ angular
 
     	});	
     });
-
+    document.getElementById("user-info").innerHTML = "User: " + localStorage.username2;
     //google geolocation for departure
     $scope.departClick = function() {
       $scope.departureInput = document.getElementById("departureLocation");
