@@ -4,11 +4,6 @@ angular
     $scope.taxidata = null;
     $scope.showSpinner = true;
     $scope.dataId = undefined;
-    $scope.username = "gan";
-
-    supersonic.data.channel('user_name').subscribe( function(message) {
-      $scope.username = message;
-    });
 
     var _refreshViewData = function () {
       Taxidata.find($scope.dataId).then( function (taxidata) {
@@ -19,7 +14,7 @@ angular
       });
     }
 
-    document.getElementById("user-info").innerHTML = "User: " + localStorage.username2 ;
+   
     $scope.joinButton = "Join Taxi";
 
     $scope.clickJoin = function(taxidata) {
