@@ -25,7 +25,7 @@ angular
         $scope.joinButton = "Leave Taxi";
           taxidata['remainingSeats']--;
           //taxidata.save();
-          taxidata['passengerList']= Array(prompt("Please enter your name")).concat(taxidata['passengerList']);
+          taxidata['passengerList']= Array(userdata['firstName']).concat(taxidata['passengerList']);
           taxidata.save();
           //alert("disp_prompt()")
       }
