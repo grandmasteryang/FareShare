@@ -60,6 +60,11 @@ angular
         if ( (departYear == todayYear) && (departMonth == todayMonth) && (departDay < todayDay) ) {
           taxidatas[i].delete();
           alert(date);
+        }
+
+        if (taxidatas[i]['remainingSeats'] == taxidatas[i]['maxPassengers']){
+          taxidatas[i].delete();
+          alert("Empty taxi deleted");
         } 
       }
 
