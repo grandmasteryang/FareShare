@@ -8,7 +8,7 @@ angular
     Taxidata.all().whenChanged( function (taxidatas) {
         $scope.$apply( function () {
           $scope.taxidatas = taxidatas;  
-
+          $scope.checkTimes(taxidatas);
     	});	
     });
     document.getElementById("user-info").innerHTML = "User: " + localStorage.username2;
@@ -32,6 +32,44 @@ angular
       });
     };
 
+    $scope.checkTimes = function(taxidatas) {
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDay = today.getDate();
+
+      for(var i = 0; i < taxidatas.length; i++){
+
+        //alert(taxidatas[i]['departDate']);
+        var date = taxidatas[i]['departDate'].split('/');
+        var departYear = parseInt(date[2]);
+        var departMonth = parseInt(date[0]);
+        var departDay = parseInt(date[1]);
+
+
+        if (departYear < todayYear) {
+          taxidatas[i].delete();
+          alert(date);
+        }
+
+        if ( (departYear == todayYear) && (departMonth < todayMonth)) {
+          taxidatas[i].delete();
+          alert(date);
+        }
+
+        if ( (departYear == todayYear) && (departMonth == todayMonth) && (departDay < todayDay) ) {
+          taxidatas[i].delete();
+          alert(date);
+        }
+
+        if (taxidatas[i]['remainingSeats'] == taxidatas[i]['maxPassengers']){
+          taxidatas[i].delete();
+          alert("Empty taxi deleted");
+        } 
+      }
+
+    };
+
     $scope.myfilter = function(element){
       var DateString = "";
       var timeBool = true;
@@ -40,6 +78,7 @@ angular
       var parsedint2 = 0;
       var withinDept = true;
       var withinDest = true;
+
 
       if (element['departTime'].charAt(element['departTime'].length-2) == ":") {
         element['departTime'] += "0";
@@ -112,8 +151,10 @@ angular
           withinDest = false;
         }
       }
+
+      var seatsBool = (element['remainingSeats'] != 0);
       
-      return (timeBool && dateBool && withinDept && withinDest);
+      return (timeBool && dateBool && withinDept && withinDest && seatsBool);
     }; 
 
     $scope.refreshTaxis = function() {
