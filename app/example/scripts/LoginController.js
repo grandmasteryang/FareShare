@@ -23,6 +23,8 @@ angular
           flag = true;
           document.getElementById("login-password").value = "";
           localStorage.username2=$scope.username;
+          localStorage.firstName=$scope.userdatas[i].firstName;
+          localStorage.objectId=$scope.userdatas[i].id;
 
           supersonic.ui.initialView.dismiss();
           //window.open("getting-started.html")

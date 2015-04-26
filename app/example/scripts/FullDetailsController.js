@@ -18,6 +18,7 @@ angular
     $scope.joinButton = "Join Taxi";
 
     $scope.clickJoin = function(taxidata) {
+
       if (taxidata['remainingSeats'] == 0 && $scope.joinButton == "Join Taxi"){
         alert("No available seats!");
       }    
@@ -25,7 +26,7 @@ angular
         $scope.joinButton = "Leave Taxi";
           taxidata['remainingSeats']--;
           //taxidata.save();
-          taxidata['passengerList']= Array(userdata['firstName']).concat(taxidata['passengerList']);
+          taxidata['passengerList']= Array(localStorage.firstName).concat(taxidata['passengerList']);
           taxidata.save();
           //alert("disp_prompt()")
       }
