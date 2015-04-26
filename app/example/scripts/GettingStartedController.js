@@ -79,6 +79,7 @@ angular
       var withinDept = true;
       var withinDest = true;
 
+
       if (element['departTime'].charAt(element['departTime'].length-2) == ":") {
         element['departTime'] += "0";
       }
@@ -150,8 +151,10 @@ angular
           withinDest = false;
         }
       }
+
+      var seatsBool = (element['remainingSeats'] != 0);
       
-      return (timeBool && dateBool && withinDept && withinDest);
+      return (timeBool && dateBool && withinDept && withinDest && seatsBool);
     }; 
 
     $scope.refreshTaxis = function() {
