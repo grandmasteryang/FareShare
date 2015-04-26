@@ -14,6 +14,11 @@ module.exports =
       id: "form-party"
       location: "example#form-party"
     }
+    {
+      title: "My Taxis"
+      id: "my-taxi"
+      location: "example#my-taxi"
+    }
     #{
     #  title: "My Taxi"
     #  id: "my-taxi"
