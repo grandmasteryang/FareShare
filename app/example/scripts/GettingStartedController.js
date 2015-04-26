@@ -42,24 +42,23 @@ angular
 
         //alert(taxidatas[i]['departDate']);
         var date = taxidatas[i]['departDate'].split('/');
-        alert(date);
         var departYear = parseInt(date[2]);
         var departMonth = parseInt(date[0]);
         var departDay = parseInt(date[1]);
 
 
         if (departYear < todayYear) {
-          //taxidatas[i].delete();
+          taxidatas[i].delete();
           alert(date);
         }
 
         if ( (departYear == todayYear) && (departMonth < todayMonth)) {
-          //taxidatas[i].delete();
+          taxidatas[i].delete();
           alert(date);
         }
 
         if ( (departYear == todayYear) && (departMonth == todayMonth) && (departDay < todayDay) ) {
-          //taxidatas[i].delete();
+          taxidatas[i].delete();
           alert(date);
         } 
       }
