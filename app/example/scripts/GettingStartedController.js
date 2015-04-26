@@ -33,13 +33,37 @@ angular
     };
 
     $scope.checkTimes = function(taxidatas) {
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDay = today.getDate();
+
       for(var i = 0; i < taxidatas.length; i++){
-        if(taxidatas[i]['deptAddr'] == "Brazil"){
-          taxidatas[i].delete().then( function () {
-            alert("Deleted a taxi");
-          });
+
+        //alert(taxidatas[i]['departDate']);
+        var date = taxidatas[i]['departDate'].split('/');
+        alert(date);
+        var departYear = parseInt(date[2]);
+        var departMonth = parseInt(date[0]);
+        var departDay = parseInt(date[1]);
+
+
+        if (departYear < todayYear) {
+          //taxidatas[i].delete();
+          alert(date);
         }
+
+        if ( (departYear == todayYear) && (departMonth < todayMonth)) {
+          //taxidatas[i].delete();
+          alert(date);
+        }
+
+        if ( (departYear == todayYear) && (departMonth == todayMonth) && (departDay < todayDay) ) {
+          //taxidatas[i].delete();
+          alert(date);
+        } 
       }
+
     };
 
     $scope.myfilter = function(element){
