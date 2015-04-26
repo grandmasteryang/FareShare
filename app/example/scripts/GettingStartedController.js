@@ -8,7 +8,7 @@ angular
     Taxidata.all().whenChanged( function (taxidatas) {
         $scope.$apply( function () {
           $scope.taxidatas = taxidatas;  
-
+          $scope.checkTimes(taxidatas);
     	});	
     });
     document.getElementById("user-info").innerHTML = "User: " + localStorage.username2;
@@ -30,6 +30,16 @@ angular
             $scope.destInput=autocompleteDest.getPlace().geometry.location;
             filterDest = new google.maps.LatLng($scope.destInput.lat(), $scope.destInput.lng());
       });
+    };
+
+    $scope.checkTimes = function(taxidatas) {
+      for(var i = 0; i < taxidatas.length; i++){
+        if(taxidatas[i]['deptAddr'] == "Brazil"){
+          taxidatas[i].delete().then( function () {
+            alert("Deleted a taxi");
+          });
+        }
+      }
     };
 
     $scope.myfilter = function(element){
