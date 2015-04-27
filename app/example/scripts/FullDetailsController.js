@@ -4,10 +4,14 @@ angular
     $scope.taxidata = null;
     $scope.showSpinner = true;
     $scope.dataId = undefined;
-    $scope.joinedTaxiIds = [];
     $scope.userId = localStorage.objectId;
+    $scope.userdata = null;
+    $scope.joinedTaxiIds = [];
+
+
 
     Usertable.find($scope.userId).then( function (user) {
+      $scope.userdata = user;
       $scope.joinedTaxiIds = user['joinedTaxis'];
     });
 
@@ -25,18 +29,22 @@ angular
 
     $scope.clickJoin = function(taxidata) {
 
-      if (taxidata['remainingSeats'] == 0 && $scope.joinButton == "Join Taxi"){
-        alert("No available seats!");
-      }    
-      else if ($scope.joinButton == "Join Taxi") {
-        $scope.joinButton = "Leave Taxi";
-          taxidata['remainingSeats']--;
-          taxidata['passengerList']= Array(localStorage.firstName).concat(taxidata['passengerList']);
-          $scope.joinedTaxiIds.push(taxidata['id']);
-          taxidata.save();
-          alert($scope.joinedTaxiIds[0]);
-          alert("Taxi Joined!");
-          supersonic.ui.tabs.select(2);
+      if ($scope.joinButton == "Join Taxi") {
+
+        // update the information for this taxi
+        // this includes adding this user and updating the number of remaining seats
+        //$scope.joinButton = "Leave Taxi";
+        taxidata['remainingSeats']--;
+        taxidata['passengerList'] = Array($scope.userdata['firstName']).concat(taxidata['passengerList']);
+        taxidata.save();
+
+        // update the information for this user
+        $scope.joinedTaxiIds.push(taxidata['id']);
+        $scope.userdata['joinedTaxis'] = $scope.joinedTaxiIds;
+        $scope.userdata.save();
+
+        // navigate to a new page
+        supersonic.ui.tabs.select(2);
       }
       else if ($scope.joinButton == "Leave Taxi") {
         $scope.joinButton = "Join Taxi";
