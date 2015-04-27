@@ -67,15 +67,5 @@ angular
 	    }
 	    alert($scope.userRow.id);
     } */
-
-
-    $scope.refreshTaxis = function() {
-      location.reload();
-    };
-
-    $scope.logOut = function() {
-      
-      supersonic.ui.initialView.show();
-    };
     
   });
