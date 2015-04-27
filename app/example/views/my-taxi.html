@@ -1,7 +1,70 @@
 <div ng-controller="MyTaxiController">
-    <super-navbar>
-        <super-navbar-title>My Taxis</super-navbar-title> 
-    </super-navbar>
+
     
-    <div ng-click="test()">{{objectId}}</div>
+
+    <super-navbar>
+        <super-navbar-title>FareShare</super-navbar-title> 
+        <super-navbar-button side="right" ng-click="refreshTaxis()">
+            refresh
+        </super-navbar-button>
+        <super-navbar-button side="left" ng-click="logOut()">
+            log out
+        </super-navbar-button>
+    </super-navbar>
+
+    <div id="Taxi-row-container">
+        <h3>Joined Taxis</h3>
+        <div class="taxiRow" ng-repeat="taxidata in joinedTaxis">
+            <div class="row">
+                <div class="col-xs-7" style="white-space:nowrap; overflow:auto">
+                    <p><b><span>From: </b></span><span ng-bind="taxidata['deptAddr']"></span></p>
+                    <p><b><span>To: </b></span><span ng-bind="taxidata['destAddr']"></span></p>
+                </div>
+                <div class="col-xs-4">
+                    <p><span ng-bind="taxidata['departDate']"></span></p>
+                    <p><span ng-bind="taxidata['departTime']"></span></p>
+                </div>
+                <super-navigate location="example#full-details" data-params-id="{{ taxidata.id }}"> 
+                <div class="col-xs-1">
+                    <span class="glyphicon glyphicon-chevron-right" style="margin-top: 35px; margin-left: 20px"></span>
+                </div>
+                </super-navigate> 
+            </div>
+            <div class="row">
+                <div class='col-xs-12'>
+                    <p><b><span>Remaining Seats: </b></span><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span></p>
+                </div>
+            </div>
+      	</div>
+    </div>
+
+
+    <h3>Created Taxis</h3>
+
+
+    <div id="Taxi-row-container">
+        
+        <div class="taxiRow" ng-repeat="taxidata in createdTaxis">
+            <div class="row">
+                <div class="col-xs-7" style="white-space:nowrap; overflow:auto">
+                    <p><b><span>From: </b></span><span ng-bind="taxidata['deptAddr']"></span></p>
+                    <p><b><span>To: </b></span><span ng-bind="taxidata['destAddr']"></span></p>
+                </div>
+                <div class="col-xs-4">
+                    <p><span ng-bind="taxidata['departDate']"></span></p>
+                    <p><span ng-bind="taxidata['departTime']"></span></p>
+                </div>
+                <super-navigate location="example#full-details" data-params-id="{{ taxidata.id }}"> 
+                <div class="col-xs-1">
+                    <span class="glyphicon glyphicon-chevron-right" style="margin-top: 35px; margin-left: 20px"></span>
+                </div>
+                </super-navigate> 
+            </div>
+            <div class="row">
+                <div class='col-xs-12'>
+                    <p><b><span>Remaining Seats: </b></span><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
