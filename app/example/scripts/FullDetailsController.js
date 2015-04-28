@@ -44,7 +44,8 @@ angular
         $scope.userdata.save();
 
         // navigate to a new page
-        supersonic.ui.tabs.select(2);
+        
+        supersonic.ui.tabs.select(0);
       }
       else if ($scope.joinButton == "Leave Taxi") {
         $scope.joinButton = "Join Taxi";
