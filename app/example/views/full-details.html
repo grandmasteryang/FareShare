@@ -24,7 +24,7 @@
   <div class="form-group" id="mail">
     <p><b>Passengers</b></p>
       
-      <div ng-hide="taxidata['passengerList'].length == 0" ng-repeat="passenger in taxidata['passengerList']"> 
+      <div ng-repeat="passenger in taxidata['passengerList']"> 
         <span>{{ passenger }}</span>
       </div>
   </div>
@@ -35,7 +35,8 @@
   </div>
 
  
-  <button class="btn btn-primary btn-lg" ng-click="clickJoin(taxidata)">{{joinButton}}</button>
+  <button class="btn btn-primary btn-lg" ng-show="!joinedBool" ng-click="clickJoin()">Join Taxi</button>
+  <button class="btn btn-primary btn-lg" ng-show="joinedBool" ng-click="clickLeave()">Leave Taxi</button>
 
 
 </div>
