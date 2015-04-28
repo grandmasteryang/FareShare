@@ -5,10 +5,13 @@ angular
     $scope.userId = localStorage.objectId;
     $scope.userdata = null;
     $scope.createdTaxiIds = [];
+    $scope.joinedTaxiIds = [];
+
   
      Usertable.find($scope.userId).then( function (user) {
       $scope.userdata = user;
       $scope.createdTaxiIds = user['createdTaxis'];
+      $scope.joinedTaxiIds = user['joinedTaxis'];
     });
 
     document.getElementById("user-info").innerHTML = "User: " + localStorage.username2;
@@ -65,6 +68,8 @@ angular
         
         newtaxidata.save().then( function () {
           // update the information for this user
+          $scope.joinedTaxiIds.push(newtaxidata['id']);
+          $scope.userdata['joinedTaxis'] = $scope.joinedTaxiIds;
           $scope.createdTaxiIds.push(newtaxidata['id']);
           $scope.userdata['createdTaxis'] = $scope.createdTaxiIds;
           $scope.userdata.save();
