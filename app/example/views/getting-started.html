@@ -10,24 +10,42 @@
         </super-navbar-button>
     </super-navbar>
 
-    <div id="user-info"></div>
+    <div class="row">
+        <div class="col-xs-12">
+        <div id="user-info"></div>
+        </div>
+    </div>
 
-    <lable>
-        <input ng-model="deptAddr" type="text" placeholder="Departure Address" id="departureLocation" ng-click="departClick()">
-    </lable>
-    <lable>
-        <input ng-model="destAddr" type="text" placeholder="Destination Address" 
-        id="destination" ng-click="destClick()">
-    </lable>
+    <div class="row">
+        <div class="col-xs-12">
+        <lable>
+            <input ng-model="deptAddr" type="text" placeholder="Departure Address" id="departureLocation" ng-click="departClick()">
+        </lable>
+        </div>
+    </div>
 
-    
+    <div class="row">
+        <div class="col-xs-12">
+        <lable>
+            <input ng-model="destAddr" type="text" placeholder="Destination Address" 
+            id="destination" ng-click="destClick()">
+        </lable>
+        </div>
+    </div>
+
      <div class="form-group">
 
-    <label for="departureDate">Departure Date</label>
-    <input type="date" ng-model="departDate">
+    <div class="row">
+        <div class="col-xs-6">
+            <label for="departureDate">Departure Date</label>
+            <input type="date" ng-model="departDate">
+        </div>
+        <div class="col-xs-6">
+            <label for="departureTime">Departure Time</label>
+            <input type="time" ng-model="departTime">
+        </div>
+    </div>
 
-    <label for="departureTime">Departure Time</label>
-    <input type="time" ng-model="departTime">
     <div id="Taxi-row-container">
         <div class="taxiRow" ng-repeat="taxidata in taxidatas|filter:myfilter">
             <div class="row">

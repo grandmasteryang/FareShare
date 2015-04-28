@@ -4,6 +4,12 @@ angular
     $scope.taxidata = null;
     $scope.showSpinner = true;
     $scope.dataId = undefined;
+    $scope.joinedTaxiIds = [];
+    $scope.userId = localStorage.objectId;
+
+    Usertable.find($scope.userId).then( function (user) {
+      $scope.joinedTaxiIds = user['joinedTaxis'];
+    });
 
     var _refreshViewData = function () {
       Taxidata.find($scope.dataId).then( function (taxidata) {
@@ -18,16 +24,19 @@ angular
     $scope.joinButton = "Join Taxi";
 
     $scope.clickJoin = function(taxidata) {
+
       if (taxidata['remainingSeats'] == 0 && $scope.joinButton == "Join Taxi"){
         alert("No available seats!");
       }    
       else if ($scope.joinButton == "Join Taxi") {
         $scope.joinButton = "Leave Taxi";
           taxidata['remainingSeats']--;
-          //taxidata.save();
-          taxidata['passengerList']= Array(userdata['firstName']).concat(taxidata['passengerList']);
+          taxidata['passengerList']= Array(localStorage.firstName).concat(taxidata['passengerList']);
+          $scope.joinedTaxiIds.push(taxidata['id']);
           taxidata.save();
-          //alert("disp_prompt()")
+          alert($scope.joinedTaxiIds[0]);
+          alert("Taxi Joined!");
+          supersonic.ui.tabs.select(2);
       }
       else if ($scope.joinButton == "Leave Taxi") {
         $scope.joinButton = "Join Taxi";
