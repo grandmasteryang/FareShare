@@ -1,3 +1,13 @@
+.mytaxi-header {
+  font-size: 18px;
+  color: black; 
+  margin-top: 15px;
+  background-color: #E8E8E8;
+  padding-top: .2cm;
+  padding-bottom: .2cm;
+  padding-left: .2cm;
+}
+
 .supersonic-navbar-mock {
   background-color: #00B5FF !important;
   text-align: center;
@@ -157,5 +167,7 @@ button#login-button {
   -webkit-border-radius: 14px;
   border-radius: 14px;
   border: 0px solid #000000;
+
+
  
 }
