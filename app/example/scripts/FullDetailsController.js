@@ -9,18 +9,32 @@ angular
     $scope.joinedTaxiIds = [];
 
 
+    Taxidata.all().whenChanged( function (taxidatas) {
+        $scope.$apply( function () {
+          $scope.joinedTaxiIds = $scope.userdata['joinedTaxis'];
+          $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
+      }); 
+    });
+
     Usertable.find($scope.userId).then( function (user) {
       $scope.userdata = user;
       $scope.joinedTaxiIds = user['joinedTaxis'];
+      $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
     });
 
     var _refreshViewData = function () {
       Taxidata.find($scope.dataId).then( function (taxidata) {
-        $scope.$apply( function () {
-          $scope.taxidata = taxidata;
-          $scope.showSpinner = false;
-          $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
+        Usertable.find($scope.userId).then( function (user) {
+          $scope.$apply( function () {
+            $scope.userdata = user;
+            $scope.taxidata = taxidata;
+            $scope.joinedTaxiIds = user['joinedTaxis'];
+            $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
 
+            //alert("Finished updating");
+
+        
+           });
         });
       });
     }
@@ -87,7 +101,7 @@ angular
   
 
     supersonic.ui.views.current.whenVisible( function () {
-      if ( $scope.dataId ) {
+      if ( $scope.dataId && ($scope.userdata != null) ) {
         _refreshViewData();
       }
     });
