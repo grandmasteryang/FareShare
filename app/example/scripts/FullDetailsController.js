@@ -68,11 +68,13 @@ angular
         $scope.userdata.save();
 
         alert("Taxi joined!");
+
         if($scope.taxidata['remainingSeats']!=0){
           $scope.joinedBool = false;
         }
         
           supersonic.ui.layers.pop();
+
           supersonic.ui.tabs.select(2);
 
         

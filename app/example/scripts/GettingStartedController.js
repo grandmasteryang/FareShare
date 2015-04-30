@@ -11,7 +11,8 @@ angular
           $scope.checkTimes(taxidatas);
     	});	
     });
-    
+
+    document.getElementById("user-info").innerHTML = "Welcome, " + localStorage.username2;
     //google geolocation for departure
     $scope.departClick = function() {
       $scope.departureInput = document.getElementById("departureLocation");
