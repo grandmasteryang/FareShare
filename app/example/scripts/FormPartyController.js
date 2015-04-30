@@ -68,13 +68,31 @@ angular
         
         newtaxidata.save().then( function () {
           // update the information for this user
-          $scope.joinedTaxiIds.push(newtaxidata['id']);
-          $scope.userdata['joinedTaxis'] = $scope.joinedTaxiIds;
-          $scope.createdTaxiIds.push(newtaxidata['id']);
-          $scope.userdata['createdTaxis'] = $scope.createdTaxiIds;
+
+          if(!$scope.userdata['joinedTaxis']){
+            $scope.userdata['joinedTaxis'] = Array(newtaxidata['id']);
+          } else{
+            $scope.joinedTaxiIds.push(newtaxidata['id']);
+            $scope.userdata['joinedTaxis'] = $scope.joinedTaxiIds;
+          }
+
+          
+
+          if(!$scope.userdata['createdTaxis']){
+            $scope.userdata['createdTaxis'] = Array(newtaxidata['id']);
+          } else {
+            $scope.createdTaxiIds.push(newtaxidata['id']);
+            $scope.userdata['createdTaxis'] = $scope.createdTaxiIds;
+          }
+
+          
+          
+          
           $scope.userdata.save();
 
-          supersonic.ui.tabs.select(0);
+          alert("Taxi successfully created!");
+
+          supersonic.ui.tabs.select(2);
           document.getElementById("newTaxiForm").reset();
         });
 
