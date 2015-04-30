@@ -10,13 +10,9 @@
         </super-navbar-button>
     </super-navbar>
 
-    <div class="row">
-        <div class="col-xs-12">
-        <div id="user-info"></div>
-        </div>
-    </div>
 
-    <div class="row">
+
+<!--    <div class="row">
         <div class="col-xs-12">
         <lable>
             <input ng-model="deptAddr" type="text" placeholder="Departure Address" id="departureLocation" ng-click="departClick()">
@@ -31,21 +27,51 @@
             id="destination" ng-click="destClick()">
         </lable>
         </div>
-    </div>
-
-     <div class="form-group">
-
+    </div> --> 
     <div class="row">
-        <div class="col-xs-6">
-            <label for="departureDate">Departure Date</label>
-            <input type="date" ng-model="departDate">
+        <div class="col-xs-8">
+            <div id="user-info"></div>
         </div>
-        <div class="col-xs-6">
-            <label for="departureTime">Departure Time</label>
-            <input type="time" ng-model="departTime">
+        <div id="filter-button"> 
+            <button class="button icon-left super-ios7-search" ng-click="isCollapsed=!isCollapsed" >
+                filter
+            </button>
         </div>
     </div>
+    
+    <div ng-show="isCollapsed">
+        <div class="bar bar-header item-input-inset col-xs-12 row">
+          <label class="item-input-wrapper col-xs-9">
+            <i class="icon super-ios7-search placeholder-icon"></i>
+            <input ng-model="deptAddr" type="search" placeholder="Departure Address" id="departureLocation" ng-click="departClick()">
+          </label>
+          <button class="button button-clear col-xs-3">
 
+          </button>
+        </div>
+
+        <div class="bar bar-header item-input-inset col-xs-12 row">
+          <label class="item-input-wrapper col-xs-9">
+            <i class="icon super-ios7-search placeholder-icon"></i>
+            <input ng-model="destAddr" type="search" placeholder="Destination Address" id="destination" ng-click="destClick()">
+          </label>
+          <button class="button button-clear col-xs-3">
+            Cancel
+          </button>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <label for="departureDate">Departure Date</label>
+                <input type="date" ng-model="departDate">
+            </div>
+            <div class="col-xs-6">
+                <label for="departureTime">Departure Time</label>
+                <input type="time" ng-model="departTime">
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
     <div id="Taxi-row-container">
         <div class="taxiRow" ng-repeat="taxidata in taxidatas|filter:myfilter">
             <div class="row">

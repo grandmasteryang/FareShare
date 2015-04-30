@@ -4,7 +4,7 @@ angular
     $scope.taxidatas = null;
     var filterDept;
     var filterDest;
-
+    $scope.isCollapsed = false;
     Taxidata.all().whenChanged( function (taxidatas) {
         $scope.$apply( function () {
           $scope.taxidatas = taxidatas;  
