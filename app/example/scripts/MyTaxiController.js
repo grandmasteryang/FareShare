@@ -22,19 +22,20 @@ angular
                 $scope.createdTaxis = [];
 
 
-
-                for(var i = 0; i<$scope.joinedTaxiIds.length; i++){
-                  Taxidata.find($scope.joinedTaxiIds[i]).then( function (taxi) {
-                    $scope.$apply( function () {
-                      $scope.joinedTaxis.push(taxi);
-                      }); 
-                  });
-                }
-
                 for(var i = 0; i<$scope.createdTaxiIds.length; i++){
                   Taxidata.find($scope.createdTaxiIds[i]).then( function (taxi) {
                     $scope.$apply( function () {
                       $scope.createdTaxis.push(taxi);
+                      }); 
+                  });
+                }
+
+                for(var i = 0; i<$scope.joinedTaxiIds.length; i++){
+                  Taxidata.find($scope.joinedTaxiIds[i]).then( function (taxi) {
+                    $scope.$apply( function () {
+                      if($scope.createdTaxiIds.indexOf(taxi['id']) < 0){
+                           $scope.joinedTaxis.push(taxi);
+                      }
                       }); 
                   });
                 }
