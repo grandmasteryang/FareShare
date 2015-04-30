@@ -3,11 +3,8 @@
         <super-navbar-title>My Taxis</super-navbar-title> 
     </super-navbar>
 
-    <h3 style="color:rgb(17, 54, 185); margin-top:15px">Created Taxis</h3>
-
-
+    <h3 class="mytaxi-header">Created Taxis</h3>
     <div id="Taxi-row-container">
-        
         <div class="taxiRow" ng-repeat="taxidata in createdTaxis|filter:myfilter">
             <div class="row">
                 <div class="col-xs-7" style="white-space:nowrap; overflow:auto">
@@ -33,7 +30,7 @@
     </div>
 
     <div id="Taxi-row-container">
-        <h3 style="color:rgb(17, 54, 185); margin-top:15px">Joined Taxis</h3>
+        <h3 class="mytaxi-header">Joined Taxis</h3>
         <div class="taxiRow" ng-repeat="taxidata in joinedTaxis|filter:myfilter">
             <div class="row">
                 <div class="col-xs-7" style="white-space:nowrap; overflow:auto">

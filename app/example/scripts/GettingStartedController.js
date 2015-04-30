@@ -4,7 +4,7 @@ angular
     $scope.taxidatas = null;
     var filterDept;
     var filterDest;
-
+    $scope.isCollapsed = false;
     Taxidata.all().whenChanged( function (taxidatas) {
         $scope.$apply( function () {
           $scope.taxidatas = taxidatas;  
@@ -12,7 +12,6 @@ angular
     	});	
     });
     
-    document.getElementById("user-info").innerHTML = "User: " + localStorage.username2;
     //google geolocation for departure
     $scope.departClick = function() {
       $scope.departureInput = document.getElementById("departureLocation");
