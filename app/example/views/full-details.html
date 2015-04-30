@@ -1,42 +1,42 @@
-<div ng-controller="FullDetailsController" class="container-fluid">
+<div ng-controller="FullDetailsController">
 
-  <div id="user-info"></div>
+ <!-- <div id="user-info"></div>
+-->
 
-  <div class="form-group">
-    <p><b>Departure Location:</b></p>
-    <p><span ng-bind="taxidata['deptAddr']"></span></p>
-  </div>
-  <div class="form-group">
-    <p><b>Destination:</b></p>
-    <p><span ng-bind="taxidata['destAddr']"></p>
-  </div>
+    <h3 class="mytaxi-header">Departure Location:</h3>
+    <p class="container-fluid"><b>From: </b><span ng-bind="taxidata['deptAddr']"></span></p>
 
-  <div class="form-group">
-  	<p><b>Departure Date and Time:</b></p>
-    <p><span ng-bind="taxidata['departDate']"></span> <span ng-bind="taxidata['departTime']"></span><p>
+  <div class="form-group ">
+    <h3 class="mytaxi-header">Destination: </h3> 
+    <p class="container-fluid"><b>To: </b><span ng-bind="taxidata['destAddr']"></p>
   </div>
 
   <div class="form-group">
-    <p><b>Remaining Seats: </b><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span></p>
+    <h3 class="mytaxi-header">Departure Date and Time: </h3> 
+    <p class="container-fluid"><span ng-bind="taxidata['departDate']"></span> <span ng-bind="taxidata['departTime']"></span><p>
+  </div>
+
+  <div class="form-group">
+    <h4 class="mytaxi-header">Remaining Seats: </h4> 
+    <p class="container-fluid"><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span></p>
   </div>
 
 
   <div class="form-group" id="mail">
-    <p><b>Passengers</b></p>
-      
-      <div ng-repeat="passenger in taxidata['passengerList']"> 
+    <h4 class="mytaxi-header">Passengers: </h4> 
+      <div class="container-fluid" ng-repeat="passenger in taxidata['passengerList']"> 
         <span>{{ passenger }}</span>
       </div>
   </div>
 
   <div class="form-group">
-    <p><b>Additional Notes</b></p>
-    <p><span ng-bind="taxidata['notes']"></span></p>
+    <h4 class="mytaxi-header">Additional Notes: </h4> 
+    <p class="container-fluid"><span ng-bind="taxidata['notes']"></span></p>
   </div>
 
- 
+ <div class="container-fluid" style="text-align:center; margin-bottom:40px">
   <button id="login-button" ng-show="!joinedBool" ng-click="clickJoin()">Join Taxi</button>
   <button id="login-button" ng-show="joinedBool" ng-click="clickLeave()">Leave Taxi</button>
-
+ </div>
 
 </div>
