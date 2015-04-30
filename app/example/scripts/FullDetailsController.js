@@ -71,9 +71,11 @@ angular
         if($scope.taxidata['remainingSeats']!=0){
           $scope.joinedBool = false;
         }
-        supersonic.ui.views.stop("example#full-details").then( function() {
+        
+          supersonic.ui.layers.pop();
           supersonic.ui.tabs.select(2);
-        });
+
+        
         // navigate to a new page
         
     
@@ -98,9 +100,9 @@ angular
         $scope.userdata['joinedTaxis'] = tmpArr;
         $scope.userdata.save();
 
-
-        // navigate to a new page
-        supersonic.ui.tabs.select(0);
+        alert("Taxi removed!");
+        supersonic.ui.layers.pop();
+        supersonic.ui.tabs.select(2);
     
     };
   

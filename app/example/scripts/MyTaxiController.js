@@ -18,6 +18,14 @@ angular
                 $scope.joinedTaxiIds = user['joinedTaxis'];
                 $scope.createdTaxiIds = user['createdTaxis'];
 
+                if (!$scope.joinedTaxiIds)
+                {
+                  $scope.joinedTaxiIds = [];
+                }
+                if (!$scope.createdTaxiIds){
+                  $scope.createdTaxiIds = [];
+                }
+
                 $scope.joinedTaxis = [];
                 $scope.createdTaxis = [];
 
