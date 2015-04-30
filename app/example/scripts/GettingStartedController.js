@@ -133,8 +133,8 @@ angular
       var dateBool = (element['departDate'] == DateString);
       dateBool = dateBool || (!$scope.departDate);
 
-      dbDept = new google.maps.LatLng(element['deptObj'].k, element['deptObj'].D);
-      dbDest = new google.maps.LatLng(element['destObj'].k, element['destObj'].D);
+      dbDept = new google.maps.LatLng(element['deptObj'].A, element['deptObj'].F);
+      dbDest = new google.maps.LatLng(element['destObj'].A, element['destObj'].F);
       if (filterDept!=undefined) {
         //computeDistance returns distance in meters, divide by 1609 to change to miles
         $scope.distanceDept = google.maps.geometry.spherical.computeDistanceBetween(filterDept, dbDept)/1609.34;
