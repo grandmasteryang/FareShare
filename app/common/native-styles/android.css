@@ -5,13 +5,14 @@
 
 
 navigation-bar {
-  background-color: #00B5FF;
+  background-color: purple;
   color: #ffffff;
   padding-left: 6px;
   padding-right: 6px;
 }
 
 navigation-bar title {
+  text-align: center;
   color: #ffffff;
   font-size: 18px;
   font-weight: 600;
@@ -19,9 +20,8 @@ navigation-bar title {
 
 navigation-bar button {
   color: #ffffff;
+  font-size: 13px
   font-weight: 300;
-  margin-left: 6px;
-  margin-right: 6px;
   border-radius: 4px;
 }
 
@@ -47,13 +47,13 @@ tab-bar {
 }
 
 tab-bar tab-bar-item {
-  color: #b0b1b4;
+  color: black;
   font-family: "Roboto";
   font-size: 10px;
 }
 
 tab-bar tab-bar-item:selected {
-  color: #1596f7;
+  color: purple;
 }
 
 tab-bar divider {
@@ -61,7 +61,7 @@ tab-bar divider {
 }
 
 tab-bar tab-bar-item marker-top:selected {
-  background-color: #1596f7;
+  background-color: purple;
 }
 
 tab-bar-item#form-party {

@@ -8,12 +8,12 @@ font-size: 15px;
 }
 
 navigation-bar {
-  background-color: #00B5FF;
+  background-color: purple;
   color: #ffffff;
 }
 
 navigation-bar title {
-  text-align: left;
+  text-align: center;
   color: #ffffff;
   font-size: 20px;
   font-weight: 600;
@@ -21,6 +21,7 @@ navigation-bar title {
 
 navigation-bar button, navigation-bar back-bar-button {
   color: #ffffff;
+  font-size: 13px;
   font-weight: 300;
   border-radius: 4px;
 }
@@ -33,13 +34,13 @@ tab-bar {
 }
 
 tab-bar tab-bar-item {
-  color: #b0b1b4;
+  color: black;
   font-family: "Avenir";
   font-size: 10px;
 }
 
 tab-bar tab-bar-item:selected {
-  color: #1596f7;
+  color: purple;
 }
 
 tab-bar-item#form-party {

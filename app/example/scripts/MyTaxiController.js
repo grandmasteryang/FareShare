@@ -10,6 +10,9 @@ angular
     $scope.joinedTaxis = [];
     $scope.createdTaxis = [];
 
+    $scope.refreshTaxis = function() {
+      location.reload();
+    };
     
     Usertable.all().whenChanged( function (userdatas) {
             Usertable.find($scope.userId).then( function (user) {

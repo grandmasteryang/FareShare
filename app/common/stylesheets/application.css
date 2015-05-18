@@ -20,12 +20,13 @@
     -webkit-border-radius: 20px 20px 0 0;
     -moz-border-radius: 20px 20px 0 0;
     border-radius: 20px 20px 20px 20px;
-    background-color: #E8E8E8;
+    background-color: purple;
+    opacity: 0.91;
 }
 
 #login h2 {
     text-align: center;
-    background-color: #00B5FF;
+    background-color: purple;
     -webkit-border-radius: 20px 20px 0 0;
     -moz-border-radius: 20px 20px 0 0;
     border-radius: 20px 20px 0 0;
@@ -60,14 +61,14 @@
 div.taxiRow{
   border-bottom:solid;
   border-width:3px;
-  border-bottom-color:#00B5FF;
+  border-bottom-color: purple;
   font-size: 15px;
 }
 
 div.userRow{
   border-bottom:solid;
   border-width:3px;
-  border-bottom-color:#00B5FF;
+  border-bottom-color: purple;
   font-size: 15px;
 }
 
@@ -146,33 +147,15 @@ text-decoration: inherit;
 text-align: left;
 line-height: 1.3em;
 }
-/*
-button#login-button {
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7892c2), color-stop(1, #476e9e));
-  background:-moz-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-  background:-webkit-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-  background:-o-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-  background:-ms-linear-gradient(top, #7892c2 5%, #476e9e 100%);
-  background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7892c2', endColorstr='#476e9e',GradientType=0);
-  background-color:#7892c2;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
-  border-radius:10px;
-  border:1px solid #4e6096;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-family:arial;
-  font-size:19px;
-  padding:9px 34px;
-  text-decoration:none;
-}*/
+
 
 .wrapper{
   text-align: center;
 }
 
+#submitWrap {
+  text-align: center;
+}
 
 button#login-button {
   margin-top: 14px;
@@ -181,12 +164,18 @@ button#login-button {
   color: #ffffff;
   width: 125px;
   padding: 8px 21px;
-  background-color: #00B5FF;
+  background-color: purple;
   -moz-border-radius: 14px;
   -webkit-border-radius: 14px;
   border-radius: 14px;
   border: 0px solid #000000;
+}
 
-
- 
+#loginPage {
+  background: url(/images/taxi1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-bottom: 150px;
 }
