@@ -179,3 +179,8 @@ button#login-button {
   background-size: cover;
   padding-bottom: 150px;
 }
+
+#map-canvas {
+    height: 200px;
+    width: 200px;
+}
