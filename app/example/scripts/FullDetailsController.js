@@ -50,9 +50,9 @@ angular
         //$scope.joinButton = "Leave Taxi";
         $scope.taxidata['remainingSeats']--;
         if(!$scope.taxidata['passengerList']){
-          $scope.taxidata['passengerList'] = Array($scope.userdata['firstName']);
+          $scope.taxidata['passengerList'] = Array($scope.userdata['firstName'] + " " + $scope.userdata['lastName']);
         } else{
-          $scope.taxidata['passengerList'] = Array($scope.userdata['firstName']).concat($scope.taxidata['passengerList']);
+          $scope.taxidata['passengerList'] = Array($scope.userdata['firstName'] + " " + $scope.userdata['lastName']).concat($scope.taxidata['passengerList']);
         }
         
         $scope.taxidata.save();
@@ -88,7 +88,7 @@ angular
         // update the taxi to reflect that we left
         $scope.taxidata['remainingSeats']++;
         var tmpArr = $scope.taxidata['passengerList'];
-        var index = tmpArr.indexOf($scope.userdata['firstName']);
+        var index = tmpArr.indexOf($scope.userdata['firstName'] + " " + $scope.userdata['lastName']);
         tmpArr.splice(index, 1);
         $scope.taxidata['passengerList'] = tmpArr;
 
@@ -102,9 +102,9 @@ angular
         $scope.userdata['joinedTaxis'] = tmpArr;
         $scope.userdata.save();
 
-        alert("Taxi removed!");
+        alert("You left the Taxi.");
         supersonic.ui.layers.pop();
-        supersonic.ui.tabs.select(2);
+        supersonic.ui.tabs.select(0);
     
     };
   

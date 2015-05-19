@@ -25,14 +25,6 @@
         <form action="javascript:void(0);" ng-show="!logg">
             <h2><span class="fontawesome-lock"></span>Sign Up</h2>
             <fieldset>
-                <p><label for="text">First Name:</label></p>
-                <p>
-                    <input type="text" id="signup-firstname" style="font-size:16px" placeholder="Enter first name" />
-                </p>
-                <p><label for="text">Last Name:</label></p>
-                <p>
-                    <input type="text" id="signup-lastname" style="font-size:16px" placeholder="Enter last name" />
-                </p>
                 <p><label for="text">Username:</label></p>
                 <p>
                     <input type="text" id="signup-username" style="font-size:16px" placeholder="Create your Username" />
@@ -41,9 +33,13 @@
                 <p>
                     <input type="password" id="signup-password" style="font-size:16px" placeholder="Create a password" />
                 </p>
-                <p><label for="text">Phone Number:</label></p>
+                <p><label for="text">First Name:</label></p>
                 <p>
-                    <input type="text" id="signup-phonenumber" style="font-size:16px" placeholder="Enter your phone number" />
+                    <input type="text" id="signup-firstname" style="font-size:16px" placeholder="Enter first name" />
+                </p>
+                <p><label for="text">Last Name:</label></p>
+                <p>
+                    <input type="text" id="signup-lastname" style="font-size:16px" placeholder="Enter last name" />
                 </p>
 
                 <div class="wrapper"><button id="login-button" ng-click= "clickSignup()">{{signupButton}}</button></div>

@@ -12,7 +12,7 @@ angular
     	});	
     });
 
-    document.getElementById("user-info").innerHTML = "Welcome: " + localStorage.username2;
+    document.getElementById("user-info").innerHTML = "Welcome: " + localStorage.firstName;
     //google geolocation for departure
     $scope.departClick = function() {
       $scope.departureInput = document.getElementById("departureLocation");
@@ -50,22 +50,21 @@ angular
 
         if (departYear < todayYear) {
           taxidatas[i].delete();
-          alert(date);
+          //alert(date);
         }
 
         if ( (departYear == todayYear) && (departMonth < todayMonth)) {
           taxidatas[i].delete();
-          alert(date);
+          //alert(date);
         }
 
         if ( (departYear == todayYear) && (departMonth == todayMonth) && (departDay < todayDay) ) {
           taxidatas[i].delete();
-          alert(date);
+          //alert(date);
         }
 
         if (taxidatas[i]['remainingSeats'] == taxidatas[i]['maxPassengers']){
           taxidatas[i].delete();
-          alert("Empty taxi deleted");
         } 
       }
 

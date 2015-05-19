@@ -33,7 +33,7 @@ angular
       }
 
       if (flag == false){
-        alert("Invalid username or password!");
+        alert("Invalid username or password.");
       }
     };
     
@@ -45,15 +45,14 @@ angular
         $scope.userdata['lastName'] = document.getElementById('signup-lastname').value;
         $scope.userdata['userName'] = document.getElementById('signup-username').value;
         $scope.userdata['userPassword'] = document.getElementById('signup-password').value;
-        $scope.userdata['phoneNumber'] = document.getElementById('signup-phonenumber').value;
         for (i = 0; i < $scope.userdatas.length; i++){
           if ($scope.userdata['userName']  ==  $scope.userdatas[i].userName ){           
             flag = true;
             break;
           }          
         }
-        if ($scope.userdata['firstName'] == "" || $scope.userdata['lastName'] == "" || $scope.userdata['userName'] == "" || $scope.userdata['userPassword'] == "" || $scope.userdata['phoneNumber'] == ""){
-          alert("Please fill in all blank areas!");
+        if ($scope.userdata['firstName'] == "" || $scope.userdata['lastName'] == "" || $scope.userdata['userName'] == "" || $scope.userdata['userPassword'] == ""){
+          alert("Please fill in all fields.");
         } else {
           if (flag == false){
             newuserdata = new Usertable($scope.userdata);
@@ -61,18 +60,16 @@ angular
 
             localStorage.username2=$scope.userdata['userName'];
 
-            alert("Successfully sign up!");
             supersonic.ui.initialView.dismiss();
           }
           else {
-            alert("Same username existed!! Input a new one:)");
+            alert("Username already exists.");
           }
         }
         document.getElementById("signup-firstname").value = "";
         document.getElementById("signup-lastname").value = "";
         document.getElementById("signup-username").value = "";
         document.getElementById("signup-password").value = "";
-        document.getElementById("signup-phonenumber").value = "";
       }
 
 

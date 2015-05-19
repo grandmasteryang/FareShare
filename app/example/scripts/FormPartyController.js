@@ -59,7 +59,12 @@ angular
 
         $scope.taxidata['notes'] = document.getElementById("notes").value;  
 
-         
+        if(!$scope.taxidata['passengerList']){
+          $scope.taxidata['passengerList'] = Array($scope.userdata['firstName'] + " " + $scope.userdata['lastName']);
+        } else{
+          $scope.taxidata['passengerList'] = Array($scope.userdata['firstName'] + " " + $scope.userdata['lastName']).concat($scope.taxidata['passengerList']);
+        }
+            
    
 
         $scope.showSpinner = true;
@@ -85,8 +90,6 @@ angular
             $scope.userdata['createdTaxis'] = $scope.createdTaxiIds;
           }
 
-          
-          
           
           $scope.userdata.save();
 
