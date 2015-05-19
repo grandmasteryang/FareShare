@@ -58,6 +58,7 @@ angular
             newuserdata = new Usertable($scope.userdata);
             newuserdata.save();
 
+            localStorage.firstName=$scope.userdata['firstName'];
             localStorage.username2=$scope.userdata['userName'];
 
             supersonic.ui.initialView.dismiss();
