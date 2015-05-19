@@ -1,26 +1,53 @@
 <div ng-controller="FullDetailsController">
 
- <!-- <div id="user-info"></div>
--->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFBARHo_w7JHd2H8vbOPVcuScKtwtCOYs
 "></script>
-  <div id="map-canvas"></div>
+  
+  <div class="row" id="mapRow">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-11">
+      <div id="map-canvas"></div>
+    </div>
+  </div>
+
+  <div class="form-group ">
     <h3 class="mytaxi-header">Departure Location:</h3>
-    <p class="container-fluid"><b>From: </b><span ng-bind="taxidata['deptAddr']"></span></p>
+    <div class="row">
+      <div class="col-xs-12">
+        <b>From: </b><span ng-bind="taxidata['deptAddr']"></span>
+      </div>
+    </div>
+  </div>
 
   <div class="form-group ">
     <h3 class="mytaxi-header">Destination: </h3> 
-    <p class="container-fluid"><b>To: </b><span ng-bind="taxidata['destAddr']"></p>
+    <div class="row">
+      <div class="col-xs-12">
+        <b>To: </b><span ng-bind="taxidata['destAddr']"></span>
+      </div>
+    </div>
   </div>
 
   <div class="form-group">
     <h3 class="mytaxi-header">Departure Date and Time: </h3> 
-    <p class="container-fluid"><span ng-bind="taxidata['departDate']"></span> <span ng-bind="taxidata['departTime']"></span><p>
+    <div class="row">
+      <div class="col-xs-6">
+        <b>Date: </b><span ng-bind="taxidata['departDate']"></span>
+      </div>
+      <div class="col-xs-6">
+        <b>Time: </b>{{time}}
+      </div>
+    </div>
   </div>
 
   <div class="form-group">
     <h4 class="mytaxi-header">Remaining Seats: </h4> 
-    <p class="container-fluid"><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span></p>
+    <div class="row">
+      <div class="col-xs-12">
+        <b>Seats: </b><span ng-bind="taxidata['remainingSeats']"></span>/<span ng-bind="taxidata['maxPassengers']"></span>
+      </div>
+    </div>
   </div>
 
 

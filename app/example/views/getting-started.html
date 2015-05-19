@@ -6,29 +6,6 @@
         <super-navbar-button side="left" ng-click="logOut()">LogOut</super-navbar-button>
     </super-navbar>
 
-
-
-
-<!--    <div class="row">
-
-    <p align="center">Filter Results<p>
-    <div class="row">
->>>>>>> d914c7ab60b582cf66abb69f58caf0760c1da80e
-        <div class="col-xs-12">
-        <lable>
-            <input ng-model="deptAddr" type="text" placeholder="Departure Address" id="departureLocation" ng-click="departClick()">
-        </lable>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12">
-        <lable>
-            <input ng-model="destAddr" type="text" placeholder="Destination Address" 
-            id="destination" ng-click="destClick()">
-        </lable>
-        </div>
-    </div> --> 
     <div class="row">
         <div class="col-xs-10">
             <div id="user-info"></div>
@@ -65,7 +42,7 @@
             </div>
         </div>
     </div>
-    <h3 class="mytaxi-header">Taxis</h3>
+    <h3 class="mytaxi-header">Taxis: </h3>
     <div class="form-group">
 
 
@@ -84,9 +61,6 @@
                 </div>
                 <super-navigate location="example#full-details" data-params-id="{{ taxidata.id }}"> 
                 <div class="col-xs-1">
-                    <!-- <button class="btn btn-default" ng-click="updateSeats(taxidata)" style="margin-top: 25px">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </button> -->
                     <span class="glyphicon glyphicon-chevron-right" style="margin-top: 35px; margin-left: 20px"></span>
                 </div>
                 </super-navigate> 

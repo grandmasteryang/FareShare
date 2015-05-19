@@ -181,6 +181,10 @@ button#login-button {
 }
 
 #map-canvas {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+}
+
+#mapRow {
+  text-align: center;
+  width: 100%;
 }
