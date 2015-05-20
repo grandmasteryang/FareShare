@@ -7,7 +7,13 @@ angular
     $scope.createdTaxiIds = [];
     $scope.joinedTaxiIds = [];
 
-  
+    // $scope.refreshTaxis = function() {
+    //   alert(document.getElementById('myDate').value);
+    //   alert(document.getElementById('myTime').value);
+    //   alert(document.getElementById('departureLocation').value);
+    //   alert(document.getElementById('destination').value);
+    // };
+
      Usertable.find($scope.userId).then( function (user) {
       $scope.userdata = user;
       $scope.createdTaxiIds = user['createdTaxis'];
@@ -41,36 +47,31 @@ angular
       $scope.taxidata['remainingSeats'] = $scope.taxidata['maxPassengers'] - 1;
       $scope.taxidata['deptAddr'] = document.getElementById('departureLocation').value;
       $scope.taxidata['destAddr'] = document.getElementById('destination').value;
-
       $scope.taxidata['deptObj'] = $scope.departureInput;
       $scope.taxidata['destObj'] = $scope.destInput;
       
-      if (!$scope.taxidata['departDate'] || !$scope.taxidata['departTime'] 
-          || !$scope.taxidata['deptAddr'] || !$scope.taxidata['destAddr']){
+      if (!document.getElementById('myDate').value || !document.getElementById('myTime').value
+          || !document.getElementById('departureLocation').value || !document.getElementById('destination').value){
         alert("Please fill in all fields.")
       } else
       {
          $scope.taxidata['departDate'] = String($scope.taxidata['departDate'].getMonth() + 1) + "/"
        + String($scope.taxidata['departDate'].getDate()) + "/" 
        + String($scope.taxidata['departDate'].getFullYear());
-
         $scope.taxidata['departTime'] = String($scope.taxidata['departTime'].getHours()) + ":"
           + String($scope.taxidata['departTime'].getMinutes());
 
-        $scope.taxidata['notes'] = document.getElementById("notes").value;  
-
+         $scope.taxidata['notes'] = "";
+         $scope.taxidata['notes'] = document.getElementById("notes").value;  
         if(!$scope.taxidata['passengerList']){
           $scope.taxidata['passengerList'] = Array($scope.userdata['firstName'] + " " + $scope.userdata['lastName']);
         } else{
           $scope.taxidata['passengerList'] = Array($scope.userdata['firstName'] + " " + $scope.userdata['lastName']).concat($scope.taxidata['passengerList']);
         }
-            
-   
 
         $scope.showSpinner = true;
         newtaxidata = new Taxidata($scope.taxidata);
 
-        
         newtaxidata.save().then( function () {
           // update the information for this user
 
@@ -80,8 +81,6 @@ angular
             $scope.joinedTaxiIds.push(newtaxidata['id']);
             $scope.userdata['joinedTaxis'] = $scope.joinedTaxiIds;
           }
-
-          
 
           if(!$scope.userdata['createdTaxis']){
             $scope.userdata['createdTaxis'] = Array(newtaxidata['id']);
@@ -93,7 +92,7 @@ angular
           
           $scope.userdata.save();
 
-          alert("Taxi successfully created!");
+          alert("Taxi created!\nPlease give a few seconds to update.");
 
           supersonic.ui.tabs.select(2);
           document.getElementById("newTaxiForm").reset();

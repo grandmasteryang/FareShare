@@ -40,7 +40,7 @@ tab-bar tab-bar-item {
 }
 
 tab-bar tab-bar-item:selected {
-  color: purple;
+  color: #1596f7;
 }
 
 tab-bar-item#form-party {

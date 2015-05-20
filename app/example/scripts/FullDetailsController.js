@@ -130,7 +130,7 @@ angular
         
         $scope.userdata.save();
 
-        alert("Taxi joined!");
+        alert("Taxi joined!\nPlease give a few seconds to update.");
 
         if($scope.taxidata['remainingSeats']!=0){
           $scope.joinedBool = false;
@@ -165,9 +165,10 @@ angular
         $scope.userdata['joinedTaxis'] = tmpArr;
         $scope.userdata.save();
 
-        alert("You left the Taxi.");
+        confirm("Are you sure you want to leave?");
+        alert("You left the Taxi.\nPlease give a few seconds to update.");
         supersonic.ui.layers.pop();
-        supersonic.ui.tabs.select(0);
+        supersonic.ui.tabs.select(2);
     
     };
   
