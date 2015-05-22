@@ -8,10 +8,12 @@ angular
     $scope.joinedTaxiIds = [];
 
     // $scope.refreshTaxis = function() {
-    //   alert(document.getElementById('myDate').value);
-    //   alert(document.getElementById('myTime').value);
-    //   alert(document.getElementById('departureLocation').value);
-    //   alert(document.getElementById('destination').value);
+    //   alert($scope.taxidata);
+    //   alert($scope.taxidata['departDate']);
+    //   // alert(document.getElementById('myDate').value);
+    //   // alert(document.getElementById('myTime').value);
+    //   // alert(document.getElementById('departureLocation').value);
+    //   // alert(document.getElementById('destination').value);
     // };
 
      Usertable.find($scope.userId).then( function (user) {
@@ -20,6 +22,15 @@ angular
       $scope.joinedTaxiIds = user['joinedTaxis'];
     });
 
+    Usertable.all().whenChanged( function (userdatas) {
+      $scope.$apply( function () {
+        Usertable.find($scope.userId).then( function (user) {
+          $scope.userdata = user;
+          $scope.createdTaxiIds = user['createdTaxis'];
+          $scope.joinedTaxiIds = user['joinedTaxis'];
+        });
+      });
+    });
     //document.getElementById("user-info").innerHTML = "User: " + localStorage.username2;
 
     //google geolocation for departure
@@ -60,7 +71,6 @@ angular
        + String($scope.taxidata['departDate'].getFullYear());
         $scope.taxidata['departTime'] = String($scope.taxidata['departTime'].getHours()) + ":"
           + String($scope.taxidata['departTime'].getMinutes());
-
          $scope.taxidata['notes'] = "";
          $scope.taxidata['notes'] = document.getElementById("notes").value;  
         if(!$scope.taxidata['passengerList']){
@@ -91,7 +101,7 @@ angular
 
           
           $scope.userdata.save();
-
+          $scope.taxidata = {};
           alert("Taxi created!\nPlease allow a few seconds to update.");
 
           supersonic.ui.tabs.select(2);
