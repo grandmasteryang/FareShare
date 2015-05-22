@@ -84,7 +84,7 @@ angular
 
             //Time parsing
             $scope.time = taxidata['departTime'];
-            if ($scope.time.length < 5 && $scope.time.charAt($scope.time.length-1) != 0) {
+            if ($scope.time.charAt($scope.time.length-2) ==":" && $scope.time.charAt($scope.time.length-1) != 0) {
               $scope.time = $scope.time.substring(0, $scope.time.length-1) + "0" + 
               $scope.time.charAt($scope.time.length-1);
             }
