@@ -78,7 +78,11 @@ angular
       var parsedint2 = 0;
       var withinDept = true;
       var withinDest = true;
-
+      
+      if (element['departTime'].length < 5 && element['departTime'].charAt(element['departTime'].length-1) != 0) {
+        element['departTime'] = element['departTime'].substring(0, element['departTime'].length-1) + "0" + 
+        element['departTime'].charAt(element['departTime'].length-1);
+      }
 
       if (element['departTime'].charAt(element['departTime'].length-2) == ":") {
         element['departTime'] += "0";

@@ -57,6 +57,11 @@ angular
     });
 
   $scope.myfilter = function(element){
+      if (element['departTime'].length < 5 && element['departTime'].charAt(element['departTime'].length-1) != 0) {
+        element['departTime'] = element['departTime'].substring(0, element['departTime'].length-1) + "0" + 
+        element['departTime'].charAt(element['departTime'].length-1);
+      }
+
       if (element['departTime'].charAt(element['departTime'].length-2) == ":") {
         element['departTime'] += "0";
       }
@@ -65,7 +70,7 @@ angular
         if (element['departTime'].charAt(0) == 0) {
           element['departTime'] = "12" + ":" + element['departTime'].charAt(2) + element['departTime'].charAt(3);
         } 
-        element['departTime'] += " AM";
+        element['departTime'] += "AM";
       }
 
       else if (element['departTime'].length == 5) {
@@ -73,13 +78,13 @@ angular
         if (hour > 12) {
           hour -= 12;
           element['departTime'] = hour.toString() + ":" + element['departTime'].charAt(3) + element['departTime'].charAt(4)
-          + " PM";
+          + "PM";
         }
         else if (hour == 10 || hour == 11) {
-          element['departTime'] += " AM";
+          element['departTime'] += "AM";
         }
         else if (hour == 12) {
-          element['departTime'] += " PM";
+          element['departTime'] += "PM";
         }
       }
 

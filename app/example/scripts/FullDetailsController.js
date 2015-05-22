@@ -15,6 +15,14 @@ angular
       }); 
     });
 
+    Usertable.all().whenChanged( function (userdatas) {
+      Usertable.find($scope.userId).then( function (user) {
+        $scope.userdata = user;
+        $scope.joinedTaxiIds = user['joinedTaxis'];
+        $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
+      });
+    });
+
     Usertable.find($scope.userId).then( function (user) {
       $scope.userdata = user;
       $scope.joinedTaxiIds = user['joinedTaxis'];
@@ -28,7 +36,7 @@ angular
             $scope.userdata = user;
             $scope.taxidata = taxidata;
             $scope.joinedTaxiIds = user['joinedTaxis'];
-            $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
+            //$scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
 
             var mapOptions = {
                 center: { lat: 42.055984, lng: -87.675171},
@@ -76,6 +84,11 @@ angular
 
             //Time parsing
             $scope.time = taxidata['departTime'];
+            if ($scope.time.length < 5 && $scope.time.charAt($scope.time.length-1) != 0) {
+              $scope.time = $scope.time.substring(0, $scope.time.length-1) + "0" + 
+              $scope.time.charAt($scope.time.length-1);
+            }
+
             if ($scope.time.charAt($scope.time.length-2) == ":") {
               $scope.time += "0";
             }
@@ -130,7 +143,7 @@ angular
         
         $scope.userdata.save();
 
-        alert("Taxi joined!\nPlease give a few seconds to update.");
+        alert("Taxi joined!");
 
         if($scope.taxidata['remainingSeats']!=0){
           $scope.joinedBool = false;
@@ -165,10 +178,9 @@ angular
         $scope.userdata['joinedTaxis'] = tmpArr;
         $scope.userdata.save();
 
-        confirm("Are you sure you want to leave?");
-        alert("You left the Taxi.\nPlease give a few seconds to update.");
+        alert("You left the Taxi.");
         supersonic.ui.layers.pop();
-        supersonic.ui.tabs.select(2);
+        supersonic.ui.tabs.select(0);
     
     };
   
@@ -184,4 +196,3 @@ angular
       _refreshViewData();
     });
   });
-

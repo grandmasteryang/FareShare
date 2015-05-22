@@ -9,7 +9,29 @@ angular
 
     
     Usertable.all().whenChanged( function (userdatas) {
-         $scope.userdatas = userdatas;         
+        //alert("updated");
+         $scope.userdatas = userdatas; 
+         if ($scope.userdata['firstName']) {
+          localStorage.removeItem("username2");
+          localStorage.removeItem("firstName");
+          localStorage.removeItem("objectId");
+          //localStorage.removeItem("password");
+          localStorage.firstName=$scope.userdata['firstName'];
+          localStorage.username2=$scope.userdata['userName'];
+          //localStorage.password=$scope.userdata['userPassword'];
+          for (i = 0; i < $scope.userdatas.length; i++){
+            if ($scope.userdatas[i].userName == $scope.userdata['userName'] && $scope.userdatas[i].userPassword == $scope.userdata['userPassword']) {
+              localStorage.objectId=$scope.userdatas[i].id;
+              //alert(localStorage.objectId);
+              break;
+            }
+          }
+          document.getElementById("signup-firstname").value = "";
+          document.getElementById("signup-lastname").value = "";
+          document.getElementById("signup-username").value = "";
+          document.getElementById("signup-password").value = "";
+          supersonic.ui.initialView.dismiss();
+         }        
     });
 
     $scope.loginButton = "Log In";
@@ -57,37 +79,15 @@ angular
           if (flag == false){
             newuserdata = new Usertable($scope.userdata);
             newuserdata.save();
-
-            localStorage.firstName=$scope.userdata['firstName'];
-            localStorage.username2=$scope.userdata['userName'];
-
-            supersonic.ui.initialView.dismiss();
+            //$scope.showSpinner = true;
           }
           else {
+            document.getElementById("signup-username").value = "";
             alert("Username already exists.");
           }
         }
-        document.getElementById("signup-firstname").value = "";
-        document.getElementById("signup-lastname").value = "";
-        document.getElementById("signup-username").value = "";
-        document.getElementById("signup-password").value = "";
       }
 
 
     };
-
-
-
-
-    /*
-    var usert = supersonic.data.model('userTable');
-    var query = {"lastName": "Diaz"};
-    usert.findAll({query: JSON.stringify(query)}).then(function(users){
-      $scope.$apply( function () {
-        $scope.users = users;
-        supersonic.logger.log(users);
-      });
-    });
-    */
-
   });
