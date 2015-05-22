@@ -7,9 +7,7 @@ angular
     $scope.userdatas = null;    
     //$scope.users = null;
 
-    
     Usertable.all().whenChanged( function (userdatas) {
-        //alert("updated");
          $scope.userdatas = userdatas; 
          if ($scope.userdata['firstName']) {
           localStorage.removeItem("username2");
@@ -30,6 +28,9 @@ angular
           document.getElementById("signup-lastname").value = "";
           document.getElementById("signup-username").value = "";
           document.getElementById("signup-password").value = "";
+          $scope.$apply( function () {
+            $scope.showSpinner = false;
+          });
           supersonic.ui.initialView.dismiss();
          }        
     });
@@ -79,7 +80,7 @@ angular
           if (flag == false){
             newuserdata = new Usertable($scope.userdata);
             newuserdata.save();
-            //$scope.showSpinner = true;
+            $scope.showSpinner = true;
           }
           else {
             document.getElementById("signup-username").value = "";

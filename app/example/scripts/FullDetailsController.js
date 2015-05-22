@@ -36,7 +36,7 @@ angular
             $scope.userdata = user;
             $scope.taxidata = taxidata;
             $scope.joinedTaxiIds = user['joinedTaxis'];
-            //$scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
+            $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
 
             var mapOptions = {
                 center: { lat: 42.055984, lng: -87.675171},
@@ -143,7 +143,7 @@ angular
         
         $scope.userdata.save();
 
-        alert("Taxi joined!");
+        alert("Taxi joined!\nPlease allow a few seconds to update.");
 
         if($scope.taxidata['remainingSeats']!=0){
           $scope.joinedBool = false;
@@ -177,8 +177,8 @@ angular
   
         $scope.userdata['joinedTaxis'] = tmpArr;
         $scope.userdata.save();
-
-        alert("You left the Taxi.");
+        window.confirm("Are you sure you want to leave?");
+        alert("You left the Taxi.\nPlease allow a few seconds to update.");
         supersonic.ui.layers.pop();
         supersonic.ui.tabs.select(0);
     

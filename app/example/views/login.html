@@ -1,6 +1,6 @@
 <div ng-controller="LoginController" class="container-fluid" id="loginPage">
-
-    <div id="login">
+     <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div id="login" ng-hide="showSpinner">
        
         <form action="javascript:void(0);" ng-show="logg">
         <h2><span class="fontawesome-lock"></span>FareShare</h2>
