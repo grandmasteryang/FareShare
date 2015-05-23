@@ -15,11 +15,13 @@ angular
       }); 
     });
 
-    Usertable.all().whenChanged( function (userdatas) {
-      alert("usertable changed");
-      _refreshViewData();
-      alert("made usertable");
-    });
+    // Usertable.all().whenChanged( function (userdatas) {
+    //   Usertable.find($scope.userId).then( function (user) {
+    //     $scope.userdata = user;
+    //     $scope.joinedTaxiIds = user['joinedTaxis'];
+    //     $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
+    //   });
+    // });
 
     Usertable.find($scope.userId).then( function (user) {
       $scope.userdata = user;
@@ -28,15 +30,18 @@ angular
     });
 
     var _refreshViewData = function () {
-      alert("refresh");
       Taxidata.find($scope.dataId).then( function (taxidata) {
         Usertable.find($scope.userId).then( function (user) {
           $scope.$apply( function () {
             $scope.userdata = user;
             $scope.taxidata = taxidata;
-            $scope.joinedTaxiIds = user['joinedTaxis'];
+            if ($scope.joinedTaxiIds) {
+              $scope.joinedTaxiIds = user['joinedTaxis'];
+            }
+            else {
+              $scope.joinedTaxiIds = [];
+            }
             $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
-
             var mapOptions = {
                 center: { lat: 42.055984, lng: -87.675171},
                 zoom: 12
@@ -113,7 +118,6 @@ angular
                 $scope.time += "PM";
               }
             }
-            alert("made refresh");
            });
         });
       });
