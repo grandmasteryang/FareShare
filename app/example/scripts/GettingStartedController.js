@@ -20,6 +20,9 @@ angular
       google.maps.event.addListener(autocompleteDep, 'place_changed', function() {
             $scope.departureInput=autocompleteDep.getPlace().geometry.location;
             filterDept = new google.maps.LatLng($scope.departureInput.lat(), $scope.departureInput.lng());
+            $scope.$apply( function () {
+              $scope.myfilter();
+            });
       });
     };
 
@@ -30,6 +33,9 @@ angular
       google.maps.event.addListener(autocompleteDest, 'place_changed', function() {
             $scope.destInput=autocompleteDest.getPlace().geometry.location;
             filterDest = new google.maps.LatLng($scope.destInput.lat(), $scope.destInput.lng());
+            $scope.$apply( function () {
+              $scope.myfilter();
+            });
       });
     };
 

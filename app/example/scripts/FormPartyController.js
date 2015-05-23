@@ -102,7 +102,7 @@ angular
           
           $scope.userdata.save();
           $scope.taxidata = {};
-          alert("Taxi created!\nPlease allow a few seconds to update.");
+          alert("Taxi created! Please allow a few seconds to update.");
 
           supersonic.ui.tabs.select(2);
           document.getElementById("newTaxiForm").reset();

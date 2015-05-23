@@ -16,93 +16,9 @@ angular
     });
 
     Usertable.all().whenChanged( function (userdatas) {
-      Taxidata.find($scope.dataId).then( function (taxidata) {
-        Usertable.find($scope.userId).then( function (user) {
-          $scope.$apply( function () {
-            $scope.userdata = user;
-            $scope.taxidata = taxidata;
-            $scope.joinedTaxiIds = user['joinedTaxis'];
-            $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
-
-            var mapOptions = {
-              center: { lat: 42.055984, lng: -87.675171},
-              zoom: 12
-            };
-            var map = new google.maps.Map(document.getElementById('map-canvas'),
-                   mapOptions);
-            var deptMarker = new google.maps.Marker({
-              position: { lat: $scope.taxidata['deptObj'].A, lng: $scope.taxidata['deptObj'].F},
-              map: map
-            });
-            var destMarker = new google.maps.Marker({
-              position: { lat: $scope.taxidata['destObj'].A, lng: $scope.taxidata['destObj'].F},
-              map: map
-            });
-
-            var markerList = new Array(deptMarker.position, destMarker.position);
-            var bounds = new google.maps.LatLngBounds();
-
-            for (var i=0, LtLgLen = markerList.length; i<LtLgLen; i++) {
-                bounds.extend(markerList[i]);
-            }
-
-            map.fitBounds(bounds);
-            google.maps.event.trigger(map,'resize');
-
-            var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
-            var directionsService = new google.maps.DirectionsService();
-
-            function calcRoute() {
-              var request = {
-                  origin:deptMarker.position,
-                  destination:destMarker.position,
-                  travelMode: google.maps.TravelMode.DRIVING
-              };
-              directionsService.route(request, function(response, status) {
-                if (status == google.maps.DirectionsStatus.OK) {
-                  directionsDisplay.setDirections(response);
-                }
-              });
-            }
-
-            calcRoute();
-            directionsDisplay.setMap(map);
-
-            //Time parsing
-            $scope.time = taxidata['departTime'];
-            if ($scope.time.charAt($scope.time.length-2) ==":" && $scope.time.charAt($scope.time.length-1) != 0) {
-              $scope.time = $scope.time.substring(0, $scope.time.length-1) + "0" + 
-              $scope.time.charAt($scope.time.length-1);
-            }
-
-            if ($scope.time.charAt($scope.time.length-2) == ":") {
-              $scope.time += "0";
-            }
-
-            if ($scope.time.length == 4) {
-              if ($scope.time.charAt(0) == 0) {
-                $scope.time = "12" + ":" + $scope.time.charAt(2) + $scope.time.charAt(3);
-              } 
-              $scope.time += "AM";
-            }
-
-            else if ($scope.time.length == 5) {
-              var hour = (Number($scope.time.charAt(0))*10) + (Number($scope.time.charAt(1)));
-              if (hour > 12) {
-                hour -= 12;
-                $scope.time = hour.toString() + ":" + $scope.time.charAt(3) + $scope.time.charAt(4)
-                + "PM";
-              }
-              else if (hour == 10 || hour == 11) {
-                $scope.time += "AM";
-              }
-              else if (hour == 12) {
-                $scope.time += "PM";
-              }
-            }
-          });
-        });
-      });
+      alert("usertable changed");
+      _refreshViewData();
+      alert("made usertable");
     });
 
     Usertable.find($scope.userId).then( function (user) {
@@ -112,6 +28,7 @@ angular
     });
 
     var _refreshViewData = function () {
+      alert("refresh");
       Taxidata.find($scope.dataId).then( function (taxidata) {
         Usertable.find($scope.userId).then( function (user) {
           $scope.$apply( function () {
@@ -196,6 +113,7 @@ angular
                 $scope.time += "PM";
               }
             }
+            alert("made refresh");
            });
         });
       });
@@ -225,7 +143,7 @@ angular
         
         $scope.userdata.save();
 
-        alert("Taxi joined!\nPlease allow a few seconds to update.");
+        alert("Taxi joined! Please allow a few seconds to update.");
 
         if($scope.taxidata['remainingSeats']!=0){
           $scope.joinedBool = false;
@@ -260,7 +178,7 @@ angular
         $scope.userdata['joinedTaxis'] = tmpArr;
         $scope.userdata.save();
         window.confirm("Are you sure you want to leave?");
-        alert("You left the Taxi.\nPlease allow a few seconds to update.");
+        alert("You left the Taxi. Please allow a few seconds to update.");
         supersonic.ui.layers.pop();
         supersonic.ui.tabs.select(0);
     
