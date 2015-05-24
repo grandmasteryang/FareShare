@@ -149,7 +149,7 @@ angular
         //computeDistance returns distance in meters, divide by 1609 to change to miles
         $scope.distanceDept = google.maps.geometry.spherical.computeDistanceBetween(filterDept, dbDept)/1609.34;
         //if departure location and filter is within x miles
-        if ($scope.distanceDept > 5) {
+        if ($scope.distanceDept > 2) {
           withinDept = false;
         }
       }
@@ -157,7 +157,7 @@ angular
         //computeDistance returns distance in meters, divide by 1609 to change to miles
         $scope.distanceDest = google.maps.geometry.spherical.computeDistanceBetween(filterDest, dbDest)/1609.34;
         //if destination location and filter is within x miles
-        if ($scope.distanceDest > 5) {
+        if ($scope.distanceDest > 2) {
           withinDest = false;
         }
       }
