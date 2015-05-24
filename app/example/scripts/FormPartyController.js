@@ -53,7 +53,6 @@ angular
 
     $scope.submitForm = function () {
       //store info in parse
-
       $scope.taxidata['maxPassengers'] = document.getElementById("maxPassengers").selectedIndex + 2;
       $scope.taxidata['remainingSeats'] = $scope.taxidata['maxPassengers'] - 1;
       $scope.taxidata['deptAddr'] = document.getElementById('departureLocation').value;
