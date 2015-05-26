@@ -4,7 +4,7 @@ angular
     $scope.taxidata = null;
     $scope.showSpinner = true;
     $scope.dataId = undefined;
-    $scope.userId = localStorage.objectId;
+    $scope.userId = undefined;
     $scope.userdata = null;
     $scope.joinedTaxiIds = [];
 
@@ -23,11 +23,11 @@ angular
     //   });
     // });
 
-    Usertable.find($scope.userId).then( function (user) {
-      $scope.userdata = user;
-      $scope.joinedTaxiIds = user['joinedTaxis'];
-      $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
-    });
+    // Usertable.find($scope.userId).then( function (user) {
+    //   $scope.userdata = user;
+    //   $scope.joinedTaxiIds = user['joinedTaxis'];
+    //   $scope.joinedBool = ($scope.joinedTaxiIds.indexOf($scope.taxidata['id']) >= 0);
+    // });
 
     var _refreshViewData = function () {
       Taxidata.find($scope.dataId).then( function (taxidata) {
@@ -190,12 +190,13 @@ angular
   
 
     supersonic.ui.views.current.whenVisible( function () {
-      if ( $scope.dataId && ($scope.userdata != null) ) {
+      if ( $scope.dataId && $scope.userId && ($scope.userdata != null) ) {
         _refreshViewData();
       }
     });
 
     supersonic.ui.views.current.params.onValue( function (values) {
+      $scope.userId = localStorage.objectId;
       $scope.dataId = values.id;
       _refreshViewData();
     });
