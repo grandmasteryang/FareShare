@@ -165,6 +165,10 @@ angular
 
     $scope.clickLeave = function() {
         
+        var confirm = window.confirm("Are you sure you want to leave?");
+        if (confirm == false) {
+          return;
+        }
         // update the taxi to reflect that we left
         $scope.taxidata['remainingSeats']++;
         var tmpArr = $scope.taxidata['passengerList'];
@@ -181,7 +185,6 @@ angular
   
         $scope.userdata['joinedTaxis'] = tmpArr;
         $scope.userdata.save();
-        window.confirm("Are you sure you want to leave?");
         alert("You left the Taxi. Please allow a few seconds to update.");
         supersonic.ui.layers.pop();
         supersonic.ui.tabs.select(0);
